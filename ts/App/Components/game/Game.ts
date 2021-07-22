@@ -4,7 +4,6 @@ import {Main, eventMain} from "./main/main";
 import {Footer, eventFooter} from "../section/footer"
 
 export const Game = (info:Info) => {
-    console.log(info.game.user.badges);
     document.body.innerHTML += 
     `
     <!-- pop-up -->

@@ -1,0 +1,15 @@
+#profilJoueur{
+    position: absolute;
+    top: calc(22vh - 1px);
+    left: calc(5vw + 17vh - 1px);
+    height: 67vh;
+    width: calc(90vw - 17vh - 1px);
+    @media screen and (min-height: 100vw){
+        top: 22vw;
+        left: calc(5vw + 17vw);
+        height: 67vw;
+        width: calc(90vw - 17vw);
+    }
+    background-color: $bg;
+    border:$border;
+}

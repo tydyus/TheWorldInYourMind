@@ -573,6 +573,25 @@ p .name {
   color: #b9322d;
 }
 
+#profilJoueur {
+  position: absolute;
+  top: calc(22vh - 1px);
+  left: calc(5vw + 17vh - 1px);
+  height: 67vh;
+  width: calc(90vw - 17vh - 1px);
+  background-color: #fdfcf6;
+  border: 1px solid #0f0f0f;
+}
+
+@media screen and (min-height: 100vw) {
+  #profilJoueur {
+    top: 22vw;
+    left: calc(5vw + 17vw);
+    height: 67vw;
+    width: calc(90vw - 17vw);
+  }
+}
+
 .wrapper {
   margin: 0;
   padding: 5vh 5vw 5vh 5vw;

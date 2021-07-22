@@ -4,6 +4,7 @@ import {NodeElement} from "./node";
 import {PathsElement} from "./paths";
 import {Node} from "../../../Types/nodeType";
 import {goToPath} from "../rule/validationPath";
+import {eventPlayerProfil} from "./playerProfil"
 
 export const Main = (info:Info) => {
     const data = require("../../../../../json/paths.json") as Array<Node>;
@@ -18,6 +19,8 @@ export const Main = (info:Info) => {
     `
 } 
 export const eventMain = (info:Info) => {
+    //profilPlayer
+    eventPlayerProfil(info);
     //other 
 
     function validPath(id:string){
