@@ -2,7 +2,8 @@ import {getInfoFromCookie, getNameOfUser, saveOnCookie, stringifyData, encoding,
 import {Info, Badge} from "../../../Types/infoType";
 import {Node} from "../../../Types/nodeType";
 import {needToSee} from "./needToSee";
-import {give, take} from "./giveANDtake"
+import {give, take} from "./giveANDtake";
+import {redirection} from "./redirection";
 
 export const pathIsValid = (nodeToGoID:number, indexPath:number, data:Array<Node>):boolean => {
     let valid = true;
@@ -35,7 +36,7 @@ export const pathIsValid = (nodeToGoID:number, indexPath:number, data:Array<Node
     return valid;
 }
 
-const eventOn = (info:Info,tags:string, type:"node"|"path") => {
+export const eventOn = (info:Info,tags:string, type:"node"|"path") => {
     let newInfo = info;
     const allTag = parseTagBasic(tags);
     for (let i = 0; i < allTag.length; i++) {
@@ -46,6 +47,8 @@ const eventOn = (info:Info,tags:string, type:"node"|"path") => {
             case("take"):
                 newInfo = take(allTag[i],newInfo);
                 break;
+            case("redirection"):
+                newInfo = redirection(allTag[i],newInfo);
             default:break;
         }
     }

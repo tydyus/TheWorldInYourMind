@@ -1,5 +1,4 @@
 import {Info, Badge} from "../../../Types/infoType";
-import {saveOnCookie, getInfoFromCookie} from "../../../tools/encoding"
 import {setBadgeUsertoData, setDatatoBadgeUser} from "./tools/tool";
 
 

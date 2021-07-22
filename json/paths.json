@@ -40,8 +40,53 @@
                 "content" : "p-talk-me$C'est donc çela, marcher ? $close$p-narrator$ Come back. $close",
                 "pathID": 0,
                 "tag":"/"
+            },
+            {
+                "content" : "p-talk-me$node 2 => redirection$close",
+                "pathID": 2,
+                "tag":"/"
             }    
         ],
         "tag":"give=marcheur_0"
+    },
+    {
+        "id" : 2,
+        "parentID": 1,
+        "type" : "character",
+        "name" : "Weird little boy",
+        "content" : "p-talk-npc$ redirirection$close$",
+        "paths":[
+            {
+                "content" : "p-talk-me$node0$close",
+                "pathID": 0,
+                "tag":"/"
+            },
+            {
+                "content" : "p-talk-me$node1$close",
+                "pathID": 1,
+                "tag":"/"
+            } 
+        ],
+        "tag":"redirection=whiteList,marcheur_0=3"
+    },
+    {
+        "id" : 3,
+        "parentID": 1,
+        "type" : "character",
+        "name" : "Weird little boy",
+        "content" : "p-talk-npc$ redirigé depuis node 2$close$",
+        "paths":[
+            {
+                "content" : "p-talk-me$node0$close",
+                "pathID": 0,
+                "tag":"/"
+            },
+            {
+                "content" : "p-talk-me$node1$close",
+                "pathID": 1,
+                "tag":"/"
+            } 
+        ],
+        "tag":"/"
     }
 ]
