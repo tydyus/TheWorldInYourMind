@@ -1,0 +1,12 @@
+{
+    "marcheur":{
+        "type":"sucess",
+        "tag":[],
+        "incremental":false
+    },
+    "hate":{
+        "type":"feeling",
+        "tag":[],
+        "incremental":true
+    }
+}

@@ -1,0 +1,75 @@
+header{
+    display: grid;
+    grid-template-columns: 17vh auto 17vh 17vh ;
+    grid-template-rows: 17vh;
+    grid-template-areas: "a b c d";
+    @media screen and (min-height: 100vw){ //verticale
+        grid-template-columns: 17vw auto 17vw 17vw ;
+        grid-template-rows: 17vw;
+    }
+
+    > .a{grid-area:a; border-right: $border;}
+    > .b{grid-area:b; border-right: $border;}
+    > .c{grid-area:c; border-right: $border; background: $bgDiagonale;}
+    > .d{grid-area:d;}
+    > .a img{
+        height: 100%;
+        width: 100%;
+    }
+    > .b{
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: 8.5vh 8.5vh;
+        @media screen and (min-height: 100vw){ //verticale
+            grid-template-rows: 8.5vw 8.5vw;}
+        grid-template-areas: "a""b";
+    }
+    > .b > div:nth-child(1) {grid-area: a; border-bottom: $border;}
+    > .b > div:nth-child(2) {grid-area: b;}
+    > .b > div{padding:1vh}
+    > .d{
+        background: 
+        linear-gradient(0deg,$wrapperFondSh 2px, transparent 2px)
+        ,$yellow;
+    }
+
+    .profilNav{
+        
+        padding:0 !important;
+        display: grid;
+        grid-template-columns: 8.5vh auto;
+        grid-template-rows: 100%;
+        @media screen and (min-height: 100vw){ //verticale
+            grid-template-columns: 8.5vw auto;}
+        grid-template-areas: "a b";
+        > div:nth-child(1) {grid-area: a; border-right: $border;}
+        > div:nth-child(2) {grid-area: b;}
+        > .a{
+            position: relative;
+            input, .checkboxDeco{
+                position: absolute;
+                top: 10%;
+                left: 10%;
+                border-radius: 100%;
+                height: 80%;
+                width: 80%;
+                margin:0;
+            }
+            input{
+                z-index: 4; 
+                opacity: 0;
+                &:hover ~ .checkboxDeco{
+                    background: $wrapperFond;
+                }
+                &:checked ~ .checkboxDeco{
+                    background: $wrapperFondSh;
+                }
+            }
+            .checkboxDeco{
+                z-index: 3;
+                background: $yellow;
+            }
+        }
+    }
+
+}

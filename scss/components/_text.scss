@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora&family=Reenie+Beanie&family=Shadows+Into+Light+Two&display=swap');
+// {
+//     font-family: 'Lora', serif;                     // serif
+//     font-family: 'Reenie Beanie', cursive;          // handwrite
+//     font-family: 'Shadows Into Light Two', cursive; // handwrite calme
+// }
+*{
+    font-family: 'Lora', serif;
+    font-size: 4vh;
+    color:$black;
+    @media screen and (min-height: 100vw){ //verticale
+        font-size: 4vw;
+    }
+}
+p{margin:0;padding:0;position: relative;}
+
+p.talk,p.narrator,p .name{font-size: 2vh;}
+p .annotation{font-size: 3vh;}
+@media screen and (min-width: 100vh) and (max-height:550px){
+    p.talk,p.narrator,p .name{font-size: 3vh;}
+    p .annotation{font-size: 4vh;}
+}
+p.talk{
+    margin: 3vh;
+    padding: 2vh;
+    border: solid $black 1px;
+}
+p.talk.me{
+    border-radius: 2vh 0 2vh 2vh;
+    background: linear-gradient(225deg, $black 1vh, transparent 1vh);
+}
+p.talk.npc{
+    border-radius: 0 2vh 2vh 2vh;
+    background: linear-gradient(135deg, $black 1vh, transparent 1vh);
+}
+p.narrator{
+    margin: 3vh;
+}
+
+p .annotation{
+    font-family: 'Shadows Into Light Two', cursive;
+    display: block;
+    position: absolute;
+    bottom:0;
+    right: 0;
+    height: fit-content;
+    color:$red;
+    transform: translate(30%, 10%) rotate(-40deg);
+}
+
+p .name{
+    font-weight: bold;
+    color:$red;
+}

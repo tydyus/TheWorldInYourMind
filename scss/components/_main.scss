@@ -1,0 +1,26 @@
+main{
+    display: grid;
+    grid-template-columns: 17vh auto 40% ;
+    grid-template-rows: auto;
+    grid-template-areas: "a b c";
+    @media screen and (min-height: 100vw){
+        grid-template-areas: "a b" "a c";
+        grid-template-columns: 17vw auto ;
+    }
+
+
+    >.a{grid-area:a; border-right: $border;}
+    >.b{grid-area:b; border-right: $border;}
+    >.c{grid-area:c}
+    @media screen and (min-height: 100vw){
+        >.b{ border-right:none; border-bottom: $border;}
+    }
+    .node{
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: 40% 60%;
+        grid-template-areas: "a" "b";
+        >.a{grid-area:a; border-bottom: $border;}
+        >.b{grid-area:b}
+    }
+}

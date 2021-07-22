@@ -1,0 +1,17 @@
+$border: 1px solid $black;
+
+$bg :
+    repeating-linear-gradient(45deg, $fond 0px, $fond 1px, transparent 1px, transparent 2px ),
+    repeating-linear-gradient(135deg, $fond 0px, $fond 1px, transparent 1px, transparent 2px ),
+    $fondLight;
+$bg: rgb(253, 252, 246);
+$bgPoint:
+    repeating-linear-gradient(45deg, $fond 0px, $fond 4px, transparent 4px, transparent 8px),
+    repeating-linear-gradient(135deg, $fond 0px, $fond 4px, transparent 4px, transparent 8px),
+    $black;
+$bgHachure:
+    repeating-linear-gradient(45deg, $black 0px, $black 4px, transparent 4px, transparent 8px);
+$bgHachureLight:
+    repeating-linear-gradient(45deg, $fond 0px, $fond 1px, transparent 1px, transparent 2px);
+$bgDiagonale:linear-gradient(135deg, transparent calc(50% - 1px), $black calc(50% - 1px), $black 50%, transparent 50%
+)

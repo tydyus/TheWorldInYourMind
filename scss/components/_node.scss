@@ -1,0 +1,16 @@
+.node{
+    .deco{
+        background: url("../img/node/npc-youngMan01.png") top left no-repeat,
+        url("../img/node/region-mountain01.png") top right no-repeat;
+        background-size: contain;
+    }
+    .content{
+        overflow-y: auto;
+        overflow-x: hidden;
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+        &::-webkit-scrollbar{
+            display: none; /* for Chrome, Safari and Opera */
+    }
+    }
+}

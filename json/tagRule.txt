@@ -1,0 +1,40 @@
+--TAG--
+
+Rêgles séparé par "$", élément de rêgles séparé par "=" , sous-élément séparé par ",".
+Le premier élément d'une rêgle défini toujours sont nom, 
+    donc: tag.split("$").map(a => console.log(a.split("=")[0])) , retournera tout les noms de rêgles dans le tag. 
+    Cette rêgle s'applique aussi pour les sous éléments
+
+rêgles:
+---------> Redirection (name:redirection) /Node
+    regarde une whiteList et une blacklist et si return true redirige vers auto vers un autre node.
+
+    écriture:
+        redirection=whiteList,badge1_1,badge2_2=blacklist,badge3_0=13
+    => Si le joueur possède le badge "badge1", le badge2 en 2 exemplaire, et ne possède pas le badge 3, il est redirigé vers le node 13.
+
+---------> don de badge (name:give) /Path/Node
+    
+    écriture:
+        give=badge1_1_100,badge2_1_50
+    donne le badge badge1 a 100% de chance, donne le badge badge2 à 50% de chance.
+    path => effet a la prise du chemin
+    node => effet a l'arrivé sur le chemin
+    
+---------> prise de badge (name:take) /Path/Node
+    
+    écriture:
+        take=badge1_1_100,badge2_2_50
+    prend le badge badge1 a 100% de chance, donne le badge badge2 à 50% de chance.
+    path => effet a la prise du chemin
+    node => effet a l'arrivé sur le chemin
+
+---------> nécessaire pour voir le chemin(name:needToSee) /Path
+    
+    écriture:
+        needToSee=whiteList,badge1_1,badge2_2=blacklist,badge3_1
+
+---------> nécessaire pour prendre le chemin(name:needToGo) /Path
+    
+    écriture:
+        needToGo=whiteList,badge1_1,badge2_2=blacklist,badge3_1
