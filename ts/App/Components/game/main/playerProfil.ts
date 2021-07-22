@@ -1,6 +1,7 @@
 import {Info} from "../../../Types/infoType";
 
 export const eventPlayerProfil = (info:Info) => {
+    document.body.innerHTML += `<div id="profilJoueur" class="hidden"></div>`;
     const profilJoueur = document.getElementById("profilJoueur") as HTMLElement;
     
     // switch
