@@ -1,25 +1,28 @@
 export const parsingText = (textFUll:string) => {
     const parseText = textFUll.split("$");
     let render = ""
-    for (let text of parseText){
-        let module = "";
-        switch(text.split("-")[0]){
+    let span = false;
+    for (let i = 0; i< parseText.length; i++){
+        switch(parseText[i].split("-")[0]){
             case("p"):
                 let className = "";
-                for (let c of text.split("-")){className+= c + " "}
-                render += `<p class="
-                ${className}
-                ">`;
-                module = "p";
+                for (let c of parseText[i].split("-")){className+= c + " "}
+                render += `<p class="${className}">`;
                 break;
             case("span"):
-            render+= `<span class="annotation">`
+                parseText[i].split("-")[1] == "title"?
+                render+= `<span class="title">`:
+                render+= `<span class="annotation">`;
+                span = true;
                 break;
             case("close"):
-                render += `</${module}>`;
+                span? 
+                render += `</span>` :
+                render += `</p>`;
+                span = false;
                 break;
             default:
-                render += text;
+                render += parseText[i];
                 break;
         }
     }

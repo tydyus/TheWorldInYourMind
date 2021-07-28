@@ -1,30 +1,34 @@
-import {getInfoFromCookie, getNameOfUser, saveOnCookie, stringifyData, encoding, decoding, parseData} from "../../../tools/encoding";
+//firebase
+import firebase from "firebase/app";
+import "firebase/firestore";
+//local
+import {getInfo, getNameOfUser, saveOn} from "../../../tools/encoding";
 import {Info, Badge} from "../../../Types/infoType";
-import {Node} from "../../../Types/nodeType";
+import {Node, findNode} from "../../../Types/nodeType";
 import {needToSee} from "./needToSee";
 import {give, take} from "./giveANDtake";
 import {redirection} from "./redirection";
 
-export const pathIsValid = (nodeToGoID:number, indexPath:number, data:Array<Node>):boolean => {
+export const pathIsValid = async (nodeToGoID:number, indexPath:number, data:Array<Node>,db: firebase.firestore.Firestore,user:firebase.User|null) => {
+    let info = await getInfo(getNameOfUser(),db,user);
+    if (info == undefined) return false;
     let valid = true;
-    const info = getInfoFromCookie(getNameOfUser());
-    
     //parametre de préVérif
     let ok = false;
     //chemin existant dans le noeud actuel
-    if (valid){
-    data[info.game.node].paths[indexPath].pathID == nodeToGoID && (ok = true);
+    if (valid){    
+    findNode(data, info.game.node).paths[indexPath].pathID == nodeToGoID && (ok = true);
     !ok&& (valid = false);
     //!valid&& console.log("chemin non existant")
     } ok = false //reset pré-vérif
 
     //
     if (valid){
-        parseTagBasic(data[info.game.node].paths[indexPath].tag).forEach(tag => {          
+        parseTagBasic(findNode(data, info.game.node).paths[indexPath].tag).forEach(tag => {          
             ok=true;
             switch(tag[0]){
                 case("needToSee"):
-                    needToSee(tag,info) || (ok=false);
+                    needToSee(tag,info as Info) || (ok=false);
                     break;
                 default:break;
             }
@@ -32,8 +36,8 @@ export const pathIsValid = (nodeToGoID:number, indexPath:number, data:Array<Node
         !ok&& (valid = false)
         //!valid&& console.log("chemin hors need")
     } ok = false //reset pré-vérif
-    //
     return valid;
+    
 }
 
 export const eventOn = (info:Info,tags:string, type:"node"|"path") => {
@@ -55,30 +59,36 @@ export const eventOn = (info:Info,tags:string, type:"node"|"path") => {
     return newInfo;
 }
 
-export const goToPath = (nodeToGoID:number, indexPath:number) => {
+export const goToPath = async (nodeToGoID:number, indexPath:number, db: firebase.firestore.Firestore,user:firebase.User|null,auth:firebase.auth.Auth) => {
+    //console.log("try to go to path"+ nodeToGoID);
     const data = require("../../../../../json/paths.json") as Array<Node>;
-    if (pathIsValid(nodeToGoID,indexPath, data)) {
-        let nameSave = getNameOfUser();
-        if (nameSave!= "load"){
+    await pathIsValid(nodeToGoID,indexPath, data, db,user).then(async valid => {
+        if (valid){
+            let nameSave = getNameOfUser();
+            if (nameSave!= "load"){
+    
+                //look info
+                await getInfo(nameSave,db,user).then(async info => {
+                    if (info == undefined) return console.log("error");
+                    const actualNode =findNode(data, info.game.node);
+                    // effet de prise du chemin
+                    info = eventOn(info, actualNode.paths[indexPath].tag,"path");
+                    //on informe que le chemin est pris
+                    info.game.node = nodeToGoID;      
+                    // effet d'arrivé sur le nouveau noeud
+                    info = eventOn(info, actualNode.tag,"node");
+                    //enregistre modification
+                    
+                    await saveOn(nameSave,info, db,user,auth).then (_ => {
+                        (document.getElementById("popUpConfirmPath") as HTMLElement).classList.add("hidden")
+                    });
+                });
 
-            //look info
-            let info = getInfoFromCookie(nameSave);
-            
-            // effet de prise du chemin
-            info = eventOn(info, data[info.game.node].paths[indexPath].tag,"path");
-
-            //on informe que le chemin est pris
-            info.game.node = nodeToGoID;
-
-            // effet d'arrivé sur le nouveau noeud
-            info = eventOn(info, data[info.game.node].tag,"node");
-            
-            //enregistre modification
-            saveOnCookie(nameSave,info);
-            document.location.href=`?user=${nameSave}`;
-        }
-        else {console.error("nom d'user inconnu");}
-    } else {console.error("chemin non valide");}
+                
+            }
+            else console.error("nom d'user inconnu");
+        } else console.error("chemin non valide");
+    });    
 }
 
 const parseTagBasic = (tags:string) => {

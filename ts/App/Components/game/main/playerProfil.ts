@@ -14,11 +14,11 @@ export const eventPlayerProfil = (info:Info) => {
     
     // content
     const badges = info.game.user.badges;
+    let render = ""
     for (let i = 0; i < badges.length; i++) {
-        profilJoueur.innerHTML +=
-        `<p>${badges[i].name} ${badges[i].nbr > 0? `(${badges[i].nbr})`:""}</p>`
+         render += `<p>${badges[i].name} ${badges[i].nbr > 0? `(${badges[i].nbr})`:""}</p>`
         
     }
-        
+    profilJoueur.innerHTML  = render;
 
 }

@@ -1,8 +1,14 @@
+//firebase
+import firebase from "firebase/app";
+import "firebase/auth";
+import "firebase/firestore";
+//local
 import {Info} from "../../Types/infoType";
-import {Main, eventMain} from "./main/main"
-import {Footer, eventFooter} from "../section/footer"
+import {Main, eventMain} from "./main/main";
+import {Footer, eventFooter} from "../section/footer";
+import {Header,eventHeader} from "../section/header";
 
-export const loadGame = (info:Info) => {
+export const loadGame = (info:Info, db:firebase.firestore.Firestore,user:firebase.User|null) => {
     document.body.innerHTML += 
     `
     <!-- pop-up -->
@@ -24,10 +30,10 @@ export const loadGame = (info:Info) => {
     `
     return (`
     <header>
-        
+        ${Header(user)}
     </header>
     <main>
-        ${Main()}
+        ${Main(db)}
     </main>
     <footer>
         ${Footer()}
@@ -35,7 +41,8 @@ export const loadGame = (info:Info) => {
     `)
 }
 
-export const eventLoadGame = (info:Info) => {
-    eventMain();
+export const eventLoadGame = (info:Info, db:firebase.firestore.Firestore,user:firebase.User|null,auth:firebase.auth.Auth) => {
+    eventMain(db,user);
     eventFooter();
+    eventHeader(user,auth);
 }

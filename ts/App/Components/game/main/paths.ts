@@ -1,14 +1,20 @@
+//firebase
+import firebase from "firebase/app";
+import "firebase/analytics";
+import "firebase/auth";
+import "firebase/firestore";
+//local
 import {Info} from "../../../Types/infoType";
 import {Node} from "../../../Types/nodeType";
 import {Path} from "../../../Types/nodeType";
 import {parsingText} from "../../../tools/parsingContent";
 import {pathIsValid} from "../rule/validationPath";
 
-export const PathsElement = (paths:Array<Path>) => {
+export const PathsElement = async (paths:Array<Path>,db: firebase.firestore.Firestore,user:firebase.User|null) => {
     let render = "";
     const data = require("../../../../../json/paths.json") as Array<Node>;
     for (let index = 0; index < paths.length; index++) {
-        if (pathIsValid(paths[index].pathID, index, data)){
+        if (await pathIsValid(paths[index].pathID, index, data, db,user)){
         render += `
         <div class="path ${paths[index].pathID}" id="path${index}">
         <div class="a content">

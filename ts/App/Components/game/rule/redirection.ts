@@ -1,5 +1,5 @@
 import {Info} from "../../../Types/infoType";
-import {Node} from "../../../Types/nodeType";
+import {Node, findNode} from "../../../Types/nodeType";
 import {eventOn} from "./validationPath";
 import {needToSee} from "./needToSee";
 
@@ -15,7 +15,7 @@ export const redirection = (tag:Array<string>, info:Info) => {
         //informe info
         newInfo.game.node = +nodeToGoID;
         //regarde si event lors de la redirection
-        newInfo = eventOn(newInfo, data[newInfo.game.node].tag,"node");
+        newInfo = eventOn(newInfo, findNode(data,newInfo.game.node).tag,"node");
     }
 
     return newInfo;

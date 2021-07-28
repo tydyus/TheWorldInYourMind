@@ -1,5 +1,6 @@
 import {getNameOfUser} from "../../tools/encoding";
 
+
 export const Footer = () => {
     let render = "";
 

@@ -47,6 +47,20 @@ p .annotation{
     color:$red;
     transform: translate(30%, 10%) rotate(-40deg);
 }
+p .title{
+    font-weight: bold;
+    display: block;
+    position: absolute;
+    font-size: 2vh;
+    top:-2.5vh;
+    left: 2%;
+    height: fit-content;
+    &::after{
+        position: absolute;
+        content: ":";
+        right: -6px;
+    }
+}
 
 p .name{
     font-weight: bold;

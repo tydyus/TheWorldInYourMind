@@ -1,4 +1,11 @@
+//firebase
+import firebase from "firebase/app";
+import "firebase/analytics";
+import "firebase/auth";
+import "firebase/firestore";
+//local
 import {Info, Badge} from "../Types/infoType";
+import {GameContent} from "./../Components/game/Game";
 
 export const  encoding = (asciiString:string) => {
     let hex = '';
@@ -92,22 +99,59 @@ export const getInfoFromUrl = () => {
     return info;
 }
 
-export const getInfoFromCookie = (nameSave:string) => {
+
+export const getInfo = async (nameSave:string,db: firebase.firestore.Firestore,user:firebase.User|null) => {
+    let info:Info = parseData(cheminHome);
     switch (nameSave){
         case("load"):   return parseData(cheminLoad);
         case("newGame"):return parseData(cheminNewGame);
-        case("home"):   return parseData(cheminHome);
-        default:        return parseData(decoding(`${document.cookie}`.split(`${nameSave}=`)[1].split(";")[0]));
+        case("home"):   return info;
+        default:
+            
+            await getSaves(db,user).then(saves => {
+                if (saves != undefined) 
+                    { 
+                    saves.map(s =>{if (s.name == nameSave) info = parseData(decoding(s.data)) });
+                    } 
+            }).catch(error => {}) 
+            return info; 
     }
 }
 
-export const saveOnCookie = (nameSave:string, save:Info) => {
-    document.cookie = `${nameSave}=${(encoding(stringifyData(save)))}; SameSite=Lax`;
+
+export const saveOn = async (nameSave:string, save:Info,db: firebase.firestore.Firestore,user:firebase.User|null,auth:firebase.auth.Auth) => {
+
+      if (user) {
+        const docSave = db.collection('saves')
+            .where('userId', '==', user.uid)
+            .where('name', '==', nameSave);
+        try 
+        {
+            docSave.get().then(saves => {
+                saves.docs.map(doc =>{
+                    db.collection('saves').doc(doc.id).set({ //mise a jour des datas
+                        data:encoding(stringifyData(save)), //ne pas oublier l'encodage
+                  }, { merge: true }) //on ne veux mettre a jour que les data sans supprimer le reste
+                  .then(_ => {save.page=="game" && GameContent(save,db,user,auth)}) //on recharge les elements de jeu
+                  .catch(error => console.error(error));
+                })
+            }).catch(error => console.error(error))
+        } catch (error) {console.error(error);}
+      }
+}
+export const CreateOn = async (nameSave:string, save:Info,db: firebase.firestore.Firestore,user:firebase.User|null,auth:firebase.auth.Auth) => {
+    if (user) {
+        await db.collection('saves').add({ //mise a jour des datas
+            name:nameSave,
+            userId:user.uid,
+            data:encoding(stringifyData(save)), //ne pas oublier l'encodage
+        })
+        .then(_ => console.log(`new save: ${nameSave}`))
+        .catch(error => console.error(error));  
+    }
 }
 
-export const deleteCookie = (nameSave:string) => {
-    document.cookie = `${nameSave}=${(encoding(stringifyData(getInfoFromCookie(nameSave))))}; SameSite=Lax; expires=Thu, 01 Jan 1970 00:00:00 UTC'`;
-}
+export const deleteSave = (nameSave:string) => {}
 
 export const getNameOfUser = () => {
     let data = window.location.search.split("?")
@@ -116,3 +160,23 @@ export const getNameOfUser = () => {
     }
     return "home";
 }
+
+export const getSaves = async (db: firebase.firestore.Firestore,user:firebase.User|null) => {
+
+      if (user) {
+        const docSave = db.collection('saves').where('userId', '==', user.uid);
+        try {
+          const renderSaves: Array<{name:string, data:string}> = [];
+          const doc = await docSave.get();
+          doc.docs.forEach(d =>
+            renderSaves.push({
+              name: d.data().name as string,
+              data: d.data().data as string,
+            }),
+          );
+          return renderSaves;
+        } catch (error) {
+          console.error(error);
+        }
+      }
+  };

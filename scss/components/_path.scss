@@ -30,38 +30,12 @@
     }
 }
 
-#popUpConfirmPath{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: $bgHachureLight;
-    overflow: hidden;
-    
-    > div{
-        width: 40vw;
-        height: 40vh;
-        margin: 30vh 30vw 30vh 30vw;
-        border: $border;
-        background: $bg;
-        display: grid;
-        grid-template-areas: "head" "texte" "choice";
-        grid-template-columns: 40vw;
-        grid-template-rows: 8vh 24vh 8vh;
-        > * {text-align: center;}
-        > .head{grid-area: head;
-            border-bottom: $border;
-            display: grid;
-            grid-template-areas: "--- close";
-            grid-template-columns: auto 8vh;
-            > .close{grid-area:close; border-left: $border;
-            background: $bgDiagonale;
-            }
 
-        }
-        > .text{grid-area: texte; border-bottom: $border;}
-        > .choice{grid-area: choice;
+#popUpConfirmPath{
+
+    > div{ 
+        > * {text-align: center;}
+        > .choice{
             display: grid;
             grid-template-areas: "oui non";
             grid-template-columns: 50% 50%;

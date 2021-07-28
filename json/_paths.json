@@ -1,0 +1,92 @@
+[
+    {
+        "id" : 0,
+        "parentID": -1,
+        "type" : "character",
+        "name" : "Weird little boy",
+        "content" : "p-talk-npc$ Qui êtes-vous? $span-tone$curieux$close$span-title$Jeune homme$close$close$p-narrator$ Un jeune homme vous regarde de haut tant dis vous sortez de ce qui vous semble être un long sommeil. Vos articulation sont toute endoloris et un mal de crane passé ce ressent au fond de votre esprit embrumé. $close$p-narrator$Ou êtes-vous? $close",
+        "paths":[
+            {
+                "content" : "p-talk-me$Je m'appelle Tydyus, et toi jeune homme, quel est ton nom? $close$p-narrator$Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. $close",
+                "pathID": 1,
+                "tag":"/"
+            },
+            {
+                "content" : "p-talk-me$Tu n'as pas remarqué que je dormais le mioche ?! $span-tone$énervé$close$close$p-narrator$Si il y a bien quelque chose que vous n'appreciez pas c'est que l'on vous réveille, ce môme à interet à avoir une bonne excuse.. $close",
+                "pathID": 1,
+                "tag":"give=hate_1"
+            },
+            {
+                "content" : "p-talk-me$deuxieme fois texte employé dans la composition et la mise en page avant impression. $close$p-narrator$Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. $close",
+                "pathID": 1,
+                "tag":"needToSee=whitelist,marcheur_0"
+            },
+            {
+                "content" : "p-talk-me$premiere fois du faux texte employé dans la composition et la mise en page avant impression. $close$p-narrator$Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. $close",
+                "pathID": 1,
+                "tag":"needToSee=blacklist,marcheur_0"
+            }     
+        ],
+        "tag":"/"
+    },
+    {
+        "id" : 1,
+        "parentID": 0,
+        "type" : "character",
+        "name" : "Weird little boy",
+        "content" : "p-talk-npc$ Vous avez fait vos premiers pas, bravo! $close$span-tone$heureux$close$",
+        "paths":[
+            {
+                "content" : "p-talk-me$C'est donc çela, marcher ? $close$p-narrator$ Come back. $close",
+                "pathID": 0,
+                "tag":"/"
+            },
+            {
+                "content" : "p-talk-me$node 2 => redirection$close",
+                "pathID": 2,
+                "tag":"/"
+            }    
+        ],
+        "tag":"give=marcheur_0"
+    },
+    {
+        "id" : 2,
+        "parentID": 1,
+        "type" : "character",
+        "name" : "Weird little boy",
+        "content" : "p-talk-npc$ redirirection$close$",
+        "paths":[
+            {
+                "content" : "p-talk-me$node0$close",
+                "pathID": 0,
+                "tag":"/"
+            },
+            {
+                "content" : "p-talk-me$node1$close",
+                "pathID": 1,
+                "tag":"/"
+            } 
+        ],
+        "tag":"redirection=whiteList,marcheur_0=3"
+    },
+    {
+        "id" : 3,
+        "parentID": 1,
+        "type" : "character",
+        "name" : "Weird little boy",
+        "content" : "p-talk-npc$ redirigé depuis node 2$close$",
+        "paths":[
+            {
+                "content" : "p-talk-me$node0$close",
+                "pathID": 0,
+                "tag":"/"
+            },
+            {
+                "content" : "p-talk-me$node1$close",
+                "pathID": 1,
+                "tag":"/"
+            } 
+        ],
+        "tag":"/"
+    }
+]

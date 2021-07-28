@@ -1,7 +1,3 @@
-import {Info} from "../../../Types/infoType";
-import {getInfoFromCookie, parseData, decoding} from "../../../tools/encoding";
-
-
 export const Main = () => {
     return `
     <div class="a"></div>

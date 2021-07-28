@@ -1,26 +1,47 @@
+//firebase
+import firebase from "firebase/app";
+import "firebase/analytics";
+import "firebase/auth";
+import "firebase/firestore";
+//local
 import {Info} from "../../../Types/infoType";
-import {getInfoFromCookie, saveOnCookie, getNameOfUser, encoding, stringifyData} from "../../../tools/encoding";
 import {NodeElement} from "./node";
 import {PathsElement} from "./paths";
-import {Node} from "../../../Types/nodeType";
+import {Node, findNode} from "../../../Types/nodeType";
 import {goToPath} from "../rule/validationPath";
 import {eventPlayerProfil} from "./playerProfil"
+import {eventGame} from "./../Game";
 
-export const Main = (info:Info) => {
-    const data = require("../../../../../json/paths.json") as Array<Node>;
+export const Main = () => {
     return `
     <div class="a"></div>
     <div class="b node" id="node">
-        ${NodeElement(data[info.game.node])}
+    <div id="nodeOnLoad" class="spinnerOnLoad"><i class="far fa-compass"></i></div>
     </div>
     <div class="c paths" id="paths">
-        ${PathsElement(data[info.game.node]["paths"])}
+    <div id="pathOnLoad" class="spinnerOnLoad"><i class="far fa-compass"></i></div>
     </div>
     `
 } 
-export const eventMain = (info:Info) => {
+export const MainContent = async(info:Info,db: firebase.firestore.Firestore,user:firebase.User|null) => {
+    const data = require("../../../../../json/paths.json") as Array<Node>;
+    const actualNode = findNode(data,info.game.node);
+    (document.getElementById("node") as HTMLElement).innerHTML
+        = NodeElement(actualNode);
+    //deco fond node
+    (document.querySelector(".node .deco") as HTMLElement).style.background = 
+    `url("./img/node/focal/${actualNode.focal}.png") top left no-repeat, url("./img/node/location/${actualNode.location}.png") top right no-repeat`;
+    (document.querySelector(".node .deco") as HTMLElement).style.backgroundSize ="contain";
+    //
+    (document.getElementById("paths") as HTMLElement).innerHTML
+        = await PathsElement(actualNode["paths"],db,user);
+}
+export const eventMain = (info:Info, db: firebase.firestore.Firestore,user:firebase.User|null,auth:firebase.auth.Auth) => {
     //profilPlayer
     eventPlayerProfil(info);
+
+    
+
     //other 
 
     function validPath(id:string){
@@ -52,9 +73,10 @@ export const eventMain = (info:Info) => {
             
             validPath(paths[index].id);  
             const popUpChoiceYes = document.getElementById('popUpChoiceYes') as HTMLElement;
-            popUpChoiceYes.classList.forEach(c => {popUpChoiceYes.classList.remove(c)} );
-            popUpChoiceYes.classList.add(paths[index].classList[1]);
-            popUpChoiceYes.classList.add(paths[index].id);
+            // popUpChoiceYes.classList.forEach(c => {popUpChoiceYes.classList.remove(c)} );
+            // popUpChoiceYes.classList.add(paths[index].classList[1]);
+            // popUpChoiceYes.classList.add(paths[index].id);
+            popUpChoiceYes.setAttribute("class", `${paths[index].classList[1]} ${paths[index].id}`)
         });
     }
 
@@ -76,15 +98,16 @@ export const eventMain = (info:Info) => {
         });
     popUpChoiceYes.addEventListener(
         "click", () => {
-            goToPath(+popUpChoiceYes.classList[0], +popUpChoiceYes.classList[1].split("path")[1]);
+            goToPath(+popUpChoiceYes.classList[0], +popUpChoiceYes.classList[1].split("path")[1],db,user,auth);
         }
             
         );
     
 
 }
-export const majMain = (actuelNode = 0) => {
+export const majMain = async (idNode = 0, db: firebase.firestore.Firestore,user:firebase.User|null) => {
     const data = require("../../../../../json/paths.json") as Array<Node>;
-    (document.getElementById("node") as HTMLElement).innerHTML = NodeElement(data[actuelNode]);
-    (document.getElementById("paths") as HTMLElement).innerHTML = PathsElement(data[actuelNode]["paths"]);
+    const actualNode = findNode(data,idNode);
+    (document.getElementById("node") as HTMLElement).innerHTML = NodeElement(actualNode);
+    (document.getElementById("paths") as HTMLElement).innerHTML = await PathsElement(actualNode["paths"],db,user);
 }

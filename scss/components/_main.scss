@@ -4,6 +4,7 @@ main{
     grid-template-rows: auto;
     grid-template-areas: "a b c";
     @media screen and (min-height: 100vw){
+        grid-template-rows: 50% 50%;
         grid-template-areas: "a b" "a c";
         grid-template-columns: 17vw auto ;
     }

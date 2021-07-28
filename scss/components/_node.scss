@@ -1,9 +1,10 @@
 .node{
-    .deco{
-        background: url("../img/node/npc-youngMan01.png") top left no-repeat,
-        url("../img/node/region-mountain01.png") top right no-repeat;
-        background-size: contain;
-    }
+    // .deco{
+    //     background: url("../img/node/npc-youngMan01.png") top left no-repeat,
+    //     url("../img/node/region-mountain01.png") top right no-repeat;
+    //     background-size: contain;
+    // }
+    position: relative;
     .content{
         overflow-y: auto;
         overflow-x: hidden;

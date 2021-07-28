@@ -1,0 +1,71 @@
+#popUpLogInOutUser{
+    > div{ //+20 vh/vw par rapport a .popUp
+    width: 60vw;
+    height: 60vh;
+    margin: 20vh 20vw 20vh 20vw;
+    grid-template-columns: 60vw;
+    grid-template-rows: 8vh 48vh 4vh;}
+    .text{
+        display:grid;
+        grid-template-columns: 30% 70%;
+        grid-template-rows: 100%;
+        grid-template-areas: "option log";
+        #firebaseui-auth-container-option{grid-area:option;border-right: $border;}
+        #firebaseui-auth-container{grid-area:log;}
+        > div{
+            display: flex; 
+            flex-direction: column; 
+            padding:5px;
+            text-align: center;
+        }
+        #firebaseui-auth-container-option{
+            display: flex; 
+            flex-direction: column;
+            justify-content: center;
+        }
+        .firebaseui-input{
+            width: 90%;
+        }
+        .firebaseui-card-footer{ 
+            align-self: flex-end;
+            p, a{
+            font-size: 1vh;
+        }}
+        .firebaseui-form-actions{display: flex; justify-content: center;}
+        .firebaseui-button{
+            margin: 5px;
+        }
+        .firebaseui-tos-list{
+            padding:0;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            > * {margin:auto 10px auto 10px}
+        }
+        .firebaseui-idp-list{
+            padding:0;
+            .firebaseui-list-item{
+                list-style: none;
+                display: flex;
+            }
+            .firebaseui-idp-icon{
+                height: 5vh;
+            }
+            span{font-size: 3vh;}
+            .firebaseui-idp-button{
+                width: 80%;
+                margin:4px auto 4px auto;
+            }
+            firebaseui-idp-icon-wrapper{
+                margin:auto;
+            }
+        }
+        .firebaseui-idp-text-short{
+            display: none;
+        }
+        @media screen and (max-width:800px) {
+            .firebaseui-idp-text-long{display: none;}
+            .firebaseui-idp-text-short{display: block;}
+        }
+    }
+}

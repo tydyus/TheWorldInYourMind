@@ -1,49 +1,58 @@
 [
     {
         "id" : 0,
-        "parentID": -1,
-        "type" : "character",
-        "name" : "Weird little boy",
-        "content" : "p-talk-npc$ Qui êtes-vous? $close$span$curieux$close$p-narrator$ Un jeune homme vous regarde de haut tant dis vous sortez de ce qui vous semble être un long sommeil. Vos articulation sont toute endoloris et un mal de crane passé ce ressent au fond de votre esprit embrumé. $close$p-narrator$Ou êtes-vous? $close",
+        "parentID": 1,
+        "type" : "location",
+        "location" : "montagne",
+        "focal" : "weird_boy",
+        "name" : "FIRST-SCENE",
+        "content" : "p-narrator$La soirée avais été rude, vous n'aviez pas fait autant la fête depuis longtemps, et c'est que vos 29 années commençais à ce faire sentir.$close$p-narrator$Mais bon, allez, on ce lève du lit et on ce remet au taf, c'est pas en ruminant sur un léger mal de crane et les excès de la vielle que le travaille vas être fait$close",
         "paths":[
             {
-                "content" : "p-talk-me$Je m'appelle Tydyus, et toi jeune homme, quel est ton nom? $close$p-narrator$Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. $close",
+                "content" :"p-narrator$Ce lever et aller ce passer un coup d'eau dans la salle de bain$close",
+                "pathID": 4,
+                "tag":"give=levetot_0"
+            },
+            {
+                "content" :"p-narrator$Ce lever et aller ce faire un café, ça fera pas passer le mal de crane mais vous avez besoin de votre dose$close",
+                "pathID": 2,
+                "tag":"give=levetot_0"
+            },
+            {
+                "content" :"p-narrator$Changer d'avis, après tout on est dimanche non? Vous pourrez toujours bosser cette aprem.$close",
                 "pathID": 1,
                 "tag":"/"
             },
             {
-                "content" : "p-talk-me$Tu n'as pas remarqué que je dormais le mioche ?! $close$span$énervé$close$p-narrator$Si il y a bien quelque chose que vous n'appreciez pas c'est que l'on vous réveille, ce môme à interet à avoir une bonne excuse.. $close",
+                "content" :"p-narrator$Changer d'avis, pourquoi ce faire autant de soucis par rapport au taf?$close$p-talk-me$It takes little to be happy. Truly very little to be happy. We must satisfy our necessities. That we are given by nature...$closespan-tone$chantonne$close$p-narrator$Vous commencer à chantonner tout en trainassant au lit$close",
                 "pathID": 1,
-                "tag":"give=hate_1"
-            },
-            {
-                "content" : "p-talk-me$deuxieme fois texte employé dans la composition et la mise en page avant impression. $close$p-narrator$Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. $close",
-                "pathID": 1,
-                "tag":"needToSee=whitelist,marcheur_0"
-            },
-            {
-                "content" : "p-talk-me$premiere fois du faux texte employé dans la composition et la mise en page avant impression. $close$p-narrator$Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. $close",
-                "pathID": 1,
-                "tag":"needToSee=blacklist,marcheur_0"
+                "tag":"give=chanteur_0"
             }     
         ],
         "tag":"/"
     },
     {
         "id" : 1,
-        "parentID": 0,
-        "type" : "character",
-        "name" : "Weird little boy",
-        "content" : "p-talk-npc$ Vous avez fait vos premiers pas, bravo! $close$span$heureux$close$",
+        "parentID": -1,
+        "type" : "location",
+        "location" : "montagne",
+        "focal" : "weird_boy",
+        "name" : "Chambre",
+        "content" : "p-talk-npc$Chambre$close$",
         "paths":[
             {
-                "content" : "p-talk-me$C'est donc çela, marcher ? $close$p-narrator$ Come back. $close",
-                "pathID": 0,
+                "content" : "p-talk-me$Salon$close",
+                "pathID": 2,
                 "tag":"/"
             },
             {
-                "content" : "p-talk-me$node 2 => redirection$close",
-                "pathID": 2,
+                "content" : "p-talk-me$Balcon$close",
+                "pathID": 5,
+                "tag":"/"
+            },
+            {
+                "content" : "p-talk-me$Salle de bain$close",
+                "pathID": 4,
                 "tag":"/"
             }    
         ],
@@ -51,41 +60,162 @@
     },
     {
         "id" : 2,
-        "parentID": 1,
-        "type" : "character",
-        "name" : "Weird little boy",
-        "content" : "p-talk-npc$ redirirection$close$",
+        "parentID": -1,
+        "type" : "location",
+        "location" : "montagne",
+        "focal" : "weird_boy",
+        "name" : "Salon",
+        "content" : "p-talk-npc$Salon$close$",
         "paths":[
             {
-                "content" : "p-talk-me$node0$close",
-                "pathID": 0,
+                "content" : "p-talk-me$Chambre$close",
+                "pathID": 1,
                 "tag":"/"
             },
             {
-                "content" : "p-talk-me$node1$close",
+                "content" : "p-talk-me$Cuisine$close",
+                "pathID": 3,
+                "tag":"/"
+            },
+            {
+                "content" : "p-talk-me$Entrée$close",
+                "pathID": 6,
+                "tag":"/"
+            },
+            {
+                "content" : "p-talk-me$WC$close",
+                "pathID": 8,
+                "tag":"/"
+            }   
+        ],
+        "tag":"/"
+    },
+    {
+        "id" : 3,
+        "parentID": -1,
+        "type" : "location",
+        "location" : "montagne",
+        "focal" : "weird_boy",
+        "name" : "Cuisine",
+        "content" : "p-talk-npc$Cuisine$close$",
+        "paths":[
+            {
+                "content" : "p-talk-me$Salon$close",
+                "pathID": 2,
+                "tag":"/"
+            }  
+        ],
+        "tag":"/"
+    },
+    {
+        "id" : 4,
+        "parentID": -1,
+        "type" : "location",
+        "location" : "montagne",
+        "focal" : "weird_boy",
+        "name" : "Salle de Bain",
+        "content" : "p-talk-npc$Salle de Bain$close$",
+        "paths":[
+            {
+                "content" : "p-talk-me$Chambre$close",
                 "pathID": 1,
                 "tag":"/"
             } 
         ],
-        "tag":"redirection=whiteList,marcheur_0=3"
+        "tag":"/"
     },
     {
-        "id" : 3,
-        "parentID": 1,
-        "type" : "character",
-        "name" : "Weird little boy",
-        "content" : "p-talk-npc$ redirigé depuis node 2$close$",
+        "id" : 5,
+        "parentID": -1,
+        "type" : "location",
+        "location" : "montagne",
+        "focal" : "weird_boy",
+        "name" : "Balcon",
+        "content" : "p-talk-npc$Balcon$close$",
         "paths":[
             {
-                "content" : "p-talk-me$node0$close",
-                "pathID": 0,
-                "tag":"/"
-            },
-            {
-                "content" : "p-talk-me$node1$close",
+                "content" : "p-talk-me$Chambre$close",
                 "pathID": 1,
                 "tag":"/"
             } 
+        ],
+        "tag":"/"
+    },
+    {
+        "id" : 6,
+        "parentID": -1,
+        "type" : "location",
+        "location" : "montagne",
+        "focal" : "weird_boy",
+        "name" : "Entrée",
+        "content" : "p-talk-npc$Entrée$close$",
+        "paths":[
+            {
+                "content" : "p-talk-me$Salon$close",
+                "pathID": 2,
+                "tag":"/"
+            },
+            {
+                "content" : "p-talk-me$Dressing$close",
+                "pathID": 7,
+                "tag":"/"
+            },
+            {
+                "content" : "p-talk-me$Sortie$close",
+                "pathID": 9,
+                "tag":"/"
+            }
+        ],
+        "tag":"/"
+    },
+    {
+        "id" : 7,
+        "parentID": -1,
+        "type" : "location",
+        "location" : "montagne",
+        "focal" : "weird_boy",
+        "name" : "Dressing",
+        "content" : "p-talk-npc$Dressing$close$",
+        "paths":[
+            {
+                "content" : "p-talk-me$Entrée$close",
+                "pathID": 6,
+                "tag":"/"
+            }
+        ],
+        "tag":"/"
+    },
+    {
+        "id" : 8,
+        "parentID": -1,
+        "type" : "location",
+        "location" : "montagne",
+        "focal" : "weird_boy",
+        "name" : "WC",
+        "content" : "p-talk-npc$WC$close$",
+        "paths":[
+            {
+                "content" : "p-talk-me$Salon$close",
+                "pathID": 2,
+                "tag":"/"
+            }
+        ],
+        "tag":"/"
+    },
+    {
+        "id" : 9,
+        "parentID": -1,
+        "type" : "location",
+        "location" : "montagne",
+        "focal" : "weird_boy",
+        "name" : "Sortie",
+        "content" : "p-talk-npc$WC$Sortie$",
+        "paths":[
+            {
+                "content" : "p-talk-me$Entrée$close",
+                "pathID": 6,
+                "tag":"/"
+            }
         ],
         "tag":"/"
     }

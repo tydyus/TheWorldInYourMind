@@ -1,5 +1,10 @@
-import {Info} from "../../../Types/infoType";
-import {saveOnCookie, parseData, getNameOfUser} from "../../../tools/encoding";
+//firebase
+import firebase from "firebase/app";
+import "firebase/analytics";
+import "firebase/auth";
+import "firebase/firestore";
+//local
+import {CreateOn, parseData} from "../../../tools/encoding";
 
 
 export const Main = () => {
@@ -19,20 +24,21 @@ export const Main = () => {
     </div>
     `
 } 
-export const eventMain = () => {
+export const eventMain = (db: firebase.firestore.Firestore,user:firebase.User|null,auth:firebase.auth.Auth) => {
     (document.getElementById("FNGsubmit") as HTMLElement)
-        .addEventListener("click", () => newGame());
+        .addEventListener("click", () => newGame(db,user,auth));
 }
 
-export const newGame = () => {
+export const newGame = (db: firebase.firestore.Firestore,user:firebase.User|null,auth:firebase.auth.Auth) => {
     let error = "";
     const name = document.getElementById("FNGname") as HTMLInputElement;
     if(!/^[a-zA-Z]/.test(name.value) || name.value.length < 2)  {error = "nom invalide";}
     if (error == "") 
     {
+        //save de base mis dans data
         const data = `page=game!gameUserName=${name.value}!gameUserBadges=joueur_0!node=0`;
-        saveOnCookie(name.value, parseData(data));
-        document.location.href=`?user=${name.value}`;
+        CreateOn(name.value, parseData(data), db,user,auth).then(_ =>
+            document.location.href=`?user=${name.value}`)
     }
     else {
         (document.getElementById("FNGerror") as HTMLElement).innerHTML = `<p style="color:red">${error}</p>`;
