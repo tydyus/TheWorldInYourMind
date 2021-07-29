@@ -14,3 +14,9 @@ export interface Node {
     tag: string;
 }
 export declare const findNode: (data: Array<Node>, idNode: number) => Node;
+interface IDsample {
+    "id": "idname";
+}
+export declare const containId: (data: Array<IDsample>, idNode: number | string) => boolean;
+export declare const findWithId: (data: Array<any>, idNode: string) => any;
+export {};

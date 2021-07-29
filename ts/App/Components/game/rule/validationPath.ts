@@ -24,8 +24,8 @@ export const pathIsValid = async (nodeToGoID:number, indexPath:number, data:Arra
 
     //
     if (valid){
+        ok=true;
         parseTagBasic(findNode(data, info.game.node).paths[indexPath].tag).forEach(tag => {          
-            ok=true;
             switch(tag[0]){
                 case("needToSee"):
                     needToSee(tag,info as Info) || (ok=false);

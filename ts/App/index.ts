@@ -31,6 +31,8 @@ firebase.analytics();
 var db = firebase.firestore();
 var auth:firebase.auth.Auth = firebase.auth();
 
+
+
 const initApp = () => {
     auth.onAuthStateChanged(user => {
         initPage(user,auth);

@@ -12,15 +12,29 @@ export const loadGame = (info:Info, db:firebase.firestore.Firestore,user:firebas
     document.body.innerHTML += 
     `
     <!-- pop-up -->
-    <div id="popUpConfirmPath" class="hidden">
+    <div id="popUpConfirmPath" class="hidden popUpConfirmLoadSave">
         <div>
             <div class="head"><div id="popUpClose" class="close"></div> </div>
-            <div class="text">
-                <p id="textPopUp">Charger la partie?</p>
+            <div class="text" id="textSaveLoadNameGlobal">
+                <div class="text1" id="textSaveLoadName">
+                    <p id="textPopUp">nomPartie</p>
+                </div>
+                <div class="text2">
+                    <div class="zonetextloadInfo" id="textLoadDate">
+                        <p>Date creation:</p>
+                        <p>Date dernière sauvegarde:</p>
+                    </div>
+                    <div class="zone decoHideInput">
+                        <input type="checkbox">
+                        <button class="decoInput">suprimer</button>
+                        <button id="btnDeleteSave" class="hiddenByInput"><i class="fas fa-trash"></i></button>
+                    </div>
+                    
+                </div>       
             </div>
             <div class="choice">
-                <div id="popUpChoiceYes">Oui</div>
-                <div id="popUpChoiceNo">Non</div>
+                <div id="popUpChoiceYes">Charger</div>
+                <div id="popUpChoiceNo">Retour</div>
             </div>
             
         </div>

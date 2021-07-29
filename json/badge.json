@@ -1,12 +1,24 @@
-{
-    "marcheur":{
+[
+    {
+        "id":"marcheur",
         "type":"sucess",
+        "name":"Marcheur",
+        "description":"Aprés mainte scène traversé vous avez dévellopez des jambes d'athlète.",
         "tag":[],
         "incremental":false
     },
-    "hate":{
+    {
+        "id":"hate",
         "type":"feeling",
         "tag":[],
         "incremental":true
+    },
+    {
+        "id":"clef-dressing",
+        "type":"item",
+        "name":"Clef de votre dressing",
+        "description":"Une vielle clef devant surement daté de la création de votre immeuble au vus de l'usure de ses angles. Elle sert à ouvrir votre dressing.",
+        "tag":["quest","unique"],
+        "incremental":false
     }
-}
+]

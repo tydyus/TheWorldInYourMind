@@ -1,0 +1,33 @@
+.popUpConfirmLoadSave{
+    i{
+        font-size: 2vh;
+    }
+    .text{
+        position: relative;
+        p,button {font-size: 2vh;}
+        .text2, .text1{
+            position: absolute;
+            height: 100%;
+            width: 50%;
+            top: 0;
+        }
+        .text1{left: 0;}
+        .text2{right: 0;}
+        .text2{
+            .zonetextloadInfo, .zone{
+                position: absolute;
+                width: 100%;
+                left: 0;
+            }
+            .zonetextloadInfo{
+                top:0;
+                height: 70%;
+            }
+            .zone{
+                height: 30%;
+                bottom:0
+            }
+        }
+    }
+
+}

@@ -19,6 +19,10 @@ export const Save = async (db:firebase.firestore.Firestore,user:firebase.User|nu
                     <div class="a content">
                         ${saves[i].name}
                     </div>
+                    <div style="display:none">
+                    <span id="dataSave${i}dateCreation">${saves[i].date_creation.toLocaleString()}</span>
+                    <span id="dataSave${i}dateLastSave">${saves[i].date_last_save.toLocaleString()}</span>
+                    </div>
                     <div class="mask"></div>
                     <div class="b confirmation"><div class="a"><i class="fas fa-chevron-right"></i>
                     </div><div class="b"></div></div>

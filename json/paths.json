@@ -68,6 +68,11 @@
         "content" : "p-talk-npc$Salon$close$",
         "paths":[
             {
+                "content" : "p-narrator$La Clef de votre dressing traine sur la table, la prendre?$close",
+                "pathID": 2,
+                "tag":"needToSee=blacklist,clef-dressing_0$give=clef-dressing_0"
+            },
+            {
                 "content" : "p-talk-me$Chambre$close",
                 "pathID": 1,
                 "tag":"/"
@@ -158,7 +163,7 @@
             {
                 "content" : "p-talk-me$Dressing$close",
                 "pathID": 7,
-                "tag":"/"
+                "tag":"needToSee=whitelist,clef-dressing_0"
             },
             {
                 "content" : "p-talk-me$Sortie$close",

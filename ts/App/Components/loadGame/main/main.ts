@@ -3,6 +3,7 @@ import firebase from "firebase/app";
 import "firebase/firestore";
 //local
 import {Save} from "./save";
+import {deleteSave} from "../../../tools/encoding"
 
 
 export const Main = (db:firebase.firestore.Firestore) => {
@@ -51,10 +52,21 @@ export const eventMain = async (db:firebase.firestore.Firestore,user:firebase.Us
                 const popUpChoiceYes = document.getElementById('popUpChoiceYes') as HTMLElement;
                 popUpChoiceYes.classList.forEach(c => {popUpChoiceYes.classList.remove(c)} );
                 popUpChoiceYes.classList.add(loadSaves[index].classList[2]);
-                let text = document.getElementById("textPopUp") as HTMLElement;
+                let text = (document.getElementById("textPopUp") as HTMLElement);
                 if (loadSaves[index].classList[2] == "newGame")
-                    text.innerHTML = "Commencer une nouvelle partie?";
-                else text.innerHTML = `Charger la partie "${loadSaves[index].classList[2]}" ?`;
+                    (document.getElementById("textSaveLoadNameGlobal") as HTMLElement)
+                    .innerHTML = "Commencer une nouvelle partie?";
+                else {
+                    (document.getElementById("textSaveLoadName") as HTMLElement)
+                        .innerHTML = `"${loadSaves[index].classList[2]}"`;
+                    (document.getElementById("textLoadDate") as HTMLElement)
+                        .innerHTML = `<p>Date creation:${
+                            (document.getElementById(`dataSave${index}dateCreation`) as HTMLElement).innerHTML
+                        }</p>
+                        <p>Date dernière sauvegarde:${
+                            (document.getElementById(`dataSave${index}dateLastSave`) as HTMLElement).innerHTML
+                        }</p>`;
+            }
             });
         }
     
@@ -62,6 +74,7 @@ export const eventMain = async (db:firebase.firestore.Firestore,user:firebase.Us
         const popUpClose = document.getElementById('popUpClose') as HTMLElement;
         const popUpChoiceNo = document.getElementById('popUpChoiceNo') as HTMLElement;
         const popUpChoiceYes = document.getElementById('popUpChoiceYes') as HTMLElement;
+        const popUpChoiceDelete = document.getElementById('btnDeleteSave') as HTMLElement;
     
         //set function in event on click
         popUpClose.addEventListener(
@@ -77,9 +90,11 @@ export const eventMain = async (db:firebase.firestore.Firestore,user:firebase.Us
         popUpChoiceYes.addEventListener(
             "click", () => {
                 document.location.href=`?user=${popUpChoiceYes.classList[0]}`;
-            }
-                
-            );
+            });
+            popUpChoiceDelete.addEventListener(
+            "click", () => {
+                deleteSave(popUpChoiceYes.classList[0],db,user);
+            });
     })
 }
 export const majMain = (actuelNode = 0) => {

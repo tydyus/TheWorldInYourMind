@@ -558,6 +558,49 @@ p .name {
   }
 }
 
+.popUpConfirmLoadSave i {
+  font-size: 2vh;
+}
+
+.popUpConfirmLoadSave .text {
+  position: relative;
+}
+
+.popUpConfirmLoadSave .text p, .popUpConfirmLoadSave .text button {
+  font-size: 2vh;
+}
+
+.popUpConfirmLoadSave .text .text2, .popUpConfirmLoadSave .text .text1 {
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  top: 0;
+}
+
+.popUpConfirmLoadSave .text .text1 {
+  left: 0;
+}
+
+.popUpConfirmLoadSave .text .text2 {
+  right: 0;
+}
+
+.popUpConfirmLoadSave .text .text2 .zonetextloadInfo, .popUpConfirmLoadSave .text .text2 .zone {
+  position: absolute;
+  width: 100%;
+  left: 0;
+}
+
+.popUpConfirmLoadSave .text .text2 .zonetextloadInfo {
+  top: 0;
+  height: 70%;
+}
+
+.popUpConfirmLoadSave .text .text2 .zone {
+  height: 30%;
+  bottom: 0;
+}
+
 #popUpLogInOutUser > div {
   width: 60vw;
   height: 60vh;
@@ -842,5 +885,53 @@ footer {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg);
   }
+}
+
+.decoHideInput {
+  position: relative;
+  height: 100%;
+  min-height: 20px;
+  width: 100%;
+}
+
+.decoHideInput [type="checkbox"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 3;
+  opacity: 0;
+}
+
+.decoHideInput .decoInput {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+}
+
+.decoHideInput .hiddenByInput {
+  display: none;
+}
+
+.decoHideInput [type="checkbox"]:checked {
+  width: 80%;
+}
+
+.decoHideInput [type="checkbox"]:checked ~ .decoInput {
+  width: 80%;
+}
+
+.decoHideInput [type="checkbox"]:checked ~ .hiddenByInput {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 20%;
+  z-index: 2;
 }
 /*# sourceMappingURL=style.css.map */

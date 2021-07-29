@@ -6,6 +6,7 @@ import "firebase/firestore";
 //local
 import {Info, Badge} from "../Types/infoType";
 import {GameContent} from "./../Components/game/Game";
+import {Save} from "../Types/saveType"
 
 export const  encoding = (asciiString:string) => {
     let hex = '';
@@ -131,6 +132,7 @@ export const saveOn = async (nameSave:string, save:Info,db: firebase.firestore.F
                 saves.docs.map(doc =>{
                     db.collection('saves').doc(doc.id).set({ //mise a jour des datas
                         data:encoding(stringifyData(save)), //ne pas oublier l'encodage
+                        date_last_save:Date()
                   }, { merge: true }) //on ne veux mettre a jour que les data sans supprimer le reste
                   .then(_ => {save.page=="game" && GameContent(save,db,user,auth)}) //on recharge les elements de jeu
                   .catch(error => console.error(error));
@@ -145,13 +147,31 @@ export const CreateOn = async (nameSave:string, save:Info,db: firebase.firestore
             name:nameSave,
             userId:user.uid,
             data:encoding(stringifyData(save)), //ne pas oublier l'encodage
+            date_creation:Date(),
+            date_last_save:Date()
         })
         .then(_ => console.log(`new save: ${nameSave}`))
         .catch(error => console.error(error));  
     }
 }
 
-export const deleteSave = (nameSave:string) => {}
+export const deleteSave = async (nameSave:string,db: firebase.firestore.Firestore,user:firebase.User|null) => {
+    if (user) {
+        const docSave = db.collection('saves')
+            .where('userId', '==', user.uid)
+            .where('name', '==', nameSave);
+        try 
+        {
+            docSave.get().then(saves => {
+                saves.docs.map(doc =>{
+                    db.collection('saves').doc(doc.id).delete() //on ne veux mettre a jour que les data sans supprimer le reste
+                  .then(_ => {document.location.href=`?user=load`;}) //on recharge la page
+                  .catch(error => console.error(error));
+                })
+            }).catch(error => console.error(error))
+        } catch (error) {console.error(error);}
+      }
+}
 
 export const getNameOfUser = () => {
     let data = window.location.search.split("?")
@@ -166,15 +186,17 @@ export const getSaves = async (db: firebase.firestore.Firestore,user:firebase.Us
       if (user) {
         const docSave = db.collection('saves').where('userId', '==', user.uid);
         try {
-          const renderSaves: Array<{name:string, data:string}> = [];
+          const renderSaves: Array<Save> = [];
           const doc = await docSave.get();
           doc.docs.forEach(d =>
             renderSaves.push({
               name: d.data().name as string,
               data: d.data().data as string,
+              date_creation: d.data().date_creation as Date,
+              date_last_save: d.data().date_last_save as Date
             }),
           );
-          return renderSaves;
+          return renderSaves.sort((a, b) => a.date_last_save.valueOf()-b.date_last_save.valueOf());
         } catch (error) {
           console.error(error);
         }
