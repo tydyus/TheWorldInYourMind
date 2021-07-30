@@ -63,7 +63,7 @@ footer{
     border: 1px solid $black;
 }
 
-.hidden{display: none;}
+.hidden{display: none !important;}
 .popUp, #popUpConfirmPath{
     z-index: 1000;
     position: absolute;

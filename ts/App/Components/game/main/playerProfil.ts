@@ -17,29 +17,33 @@ export const eventPlayerProfil = (info:Info) => {
     // content
     const badges = info.game.user.badges;
     profilJoueur.innerHTML =
-    `<div id="profilJoueurInfo">
-        <div id="profilJoueurInfoProfil">
+    `<div id="profilJoueurInfo" class="inventaireTabMaster">
+        <div id="profilJoueurInfoProfil" class="inventaireTab">
         </div>
-        <div id="profilJoueurInfoMission">
+        <div id="profilJoueurInfoMission" class="inventaireTab">
         </div>
-        <div id="profilJoueurInfoSucess">
+        <div id="profilJoueurInfoSucess" class="inventaireTab">
         </div>
     </div>
-    <div id="profilJoueurInventaire">
-        <div id="profilJoueurInventaireItem">
+    <div id="profilJoueurInventaire" class="inventaireTabMaster">
+        <div id="profilJoueurInventaireItem" class="inventaireTab">
         </div>
-        <div id="profilJoueurInventaireCompagon">
+        <div id="profilJoueurInventaireCompagon" class="inventaireTab">
         </div>
     </div>`;
     for (let i = 0; i < badges.length; i++) {
         if (containId(badgesData,badges[i].name)){ //present en base de donné
-            switch(findWithId(badgesData,badges[i].name)["type"]){
+            const badgeInfo:any = findWithId(badgesData,badges[i].name)
+            switch(badgeInfo["type"]){
                 case("item"):
-                (document.getElementById("profilJoueurInventaireItem") as HTMLElement).innerHTML +=
-                `<div class="badge">
-                    <p class="badgeName">${badges[i].name}</p>
-                    <p class="badgeNbr">${badges[i].nbr > 0? `(${badges[i].nbr})`:""}</p>
-                </div>`
+                    (document.getElementById("profilJoueurInventaireItem") as HTMLElement).innerHTML +=
+                    `<div class="badge badgeItem" id="badgesItem${i}">
+                        <p class="badgeName">${badgeInfo["name"]}</p>
+                        <p class="badgeNbr">${badges[i].nbr > 0? `(${badges[i].nbr})`:""}</p>
+                    </div>`
+                    const b = (document.getElementById(`badgesItem${i}`) as HTMLElement);
+                    b.style.background = `url("./img/badge/${badgeInfo["img"] == "" ? "none":badgeInfo["img"]}.png")`;
+                    b.style.backgroundSize = `contain`;
                 break;
                 case("sucess"):
                 break;

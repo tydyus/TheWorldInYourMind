@@ -1,16 +1,92 @@
 #profilJoueur{
-    overflow: scroll;
     position: absolute;
     top: calc(22vh - 1px);
     left: calc(5vw + 17vh - 1px);
     height: 67vh;
     width: calc(90vw - 17vh - 1px);
     @media screen and (min-height: 100vw){
-        top: 22vw;
-        left: calc(5vw + 17vw);
-        height: 67vw;
-        width: calc(90vw - 17vw);
+        top: calc(5vh + 17vw - 1px);
+        left: calc(22vw);
+        height: calc(80vh - 17vw - 8vw);
+        width: calc(90vw - 17vw - 2px);
     }
     background-color: $bg;
     border:$border;
+
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100%;
+    grid-template-areas: "inf inv";
+    
+    > div {margin:10px;}
+    #profilJoueurInfo{grid-area: inf; border: $border;margin-right: 5px;}
+    #profilJoueurInventaire{grid-area: inv; border: $border;margin-left: 5px;}
+    @media screen and (min-height: 100vw){
+        grid-template-columns: 100%;
+        grid-template-rows: 50% 50%;
+        grid-template-areas: "inf" "inv";
+        #profilJoueurInfo{margin:10px 10px 5px 10px;}
+        #profilJoueurInventaire{margin:5px 10px 10px 10px;}
+    }
+
+    .inventaireTabMaster{
+        position:relative;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+    $sizeHeightTab: 20px;
+    .inventaireTab{
+    position:absolute;
+    top:$sizeHeightTab;
+    left:0;
+    width: 100%;
+    border-top: $border;
+    background: $bg;
+    }
+
+    .badgeItem{
+        position:relative;
+        height: 2.5vw;
+        width: 2.5vw;
+        margin:0.5vw;
+        @media screen and (min-height: 100vw){
+            height: 5vw;
+            width: 5vw;
+            margin:1vw;
+        }
+        border:$border;
+        .badgeName{
+            position: absolute;
+            left:0.5vw;
+            width: max-content;
+            bottom:-2vw;
+            font-size: 1.5vw;
+            padding:0.26vw;
+            @media screen and (min-height: 100vw){
+                left:1vw;
+                bottom:-4vw;
+                font-size: 3vw;
+                padding:0.7vw;}
+            border:$border;
+            background: $bg;
+            display:none
+        }
+        &:hover .badgeName{display: block; z-index: 10;}
+        .badgeNbr{
+            color:$bg;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            background-color: $black;
+            padding: 0.1vw;
+            font-size: 1vw;
+            @media screen and (min-height: 100vw){padding: 0.2vw;font-size: 2vw;}
+        }
+        
+    }
+    #profilJoueurInventaireItem{
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        grid-gap: 0px;
+    }
 }

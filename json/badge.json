@@ -18,6 +18,7 @@
         "type":"item",
         "name":"Clef de votre dressing",
         "description":"Une vielle clef devant surement daté de la création de votre immeuble au vus de l'usure de ses angles. Elle sert à ouvrir votre dressing.",
+        "img":"",
         "tag":["quest","unique"],
         "incremental":false
     }

@@ -539,7 +539,6 @@ p .name {
 }
 
 #profilJoueur {
-  overflow: scroll;
   position: absolute;
   top: calc(22vh - 1px);
   left: calc(5vw + 17vh - 1px);
@@ -547,15 +546,142 @@ p .name {
   width: calc(90vw - 17vh - 1px);
   background-color: #fdfcf6;
   border: 1px solid #0f0f0f;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 50% 50%;
+      grid-template-columns: 50% 50%;
+  -ms-grid-rows: 100%;
+      grid-template-rows: 100%;
+      grid-template-areas: "inf inv";
 }
 
 @media screen and (min-height: 100vw) {
   #profilJoueur {
-    top: 22vw;
-    left: calc(5vw + 17vw);
-    height: 67vw;
-    width: calc(90vw - 17vw);
+    top: calc(5vh + 17vw - 1px);
+    left: calc(22vw);
+    height: calc(80vh - 17vw - 8vw);
+    width: calc(90vw - 17vw - 2px);
   }
+}
+
+#profilJoueur > div {
+  margin: 10px;
+}
+
+#profilJoueur #profilJoueurInfo {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: inf;
+  border: 1px solid #0f0f0f;
+  margin-right: 5px;
+}
+
+#profilJoueur #profilJoueurInventaire {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: inv;
+  border: 1px solid #0f0f0f;
+  margin-left: 5px;
+}
+
+@media screen and (min-height: 100vw) {
+  #profilJoueur {
+    -ms-grid-columns: 100%;
+        grid-template-columns: 100%;
+    -ms-grid-rows: 50% 50%;
+        grid-template-rows: 50% 50%;
+        grid-template-areas: "inf" "inv";
+  }
+  #profilJoueur #profilJoueurInfo {
+    margin: 10px 10px 5px 10px;
+  }
+  #profilJoueur #profilJoueurInventaire {
+    margin: 5px 10px 10px 10px;
+  }
+}
+
+#profilJoueur .inventaireTabMaster {
+  position: relative;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+#profilJoueur .inventaireTab {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  width: 100%;
+  border-top: 1px solid #0f0f0f;
+  background: #fdfcf6;
+}
+
+#profilJoueur .badgeItem {
+  position: relative;
+  height: 2.5vw;
+  width: 2.5vw;
+  margin: 0.5vw;
+  border: 1px solid #0f0f0f;
+}
+
+@media screen and (min-height: 100vw) {
+  #profilJoueur .badgeItem {
+    height: 5vw;
+    width: 5vw;
+    margin: 1vw;
+  }
+}
+
+#profilJoueur .badgeItem .badgeName {
+  position: absolute;
+  left: 0.5vw;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  bottom: -2vw;
+  font-size: 1.5vw;
+  padding: 0.26vw;
+  border: 1px solid #0f0f0f;
+  background: #fdfcf6;
+  display: none;
+}
+
+@media screen and (min-height: 100vw) {
+  #profilJoueur .badgeItem .badgeName {
+    left: 1vw;
+    bottom: -4vw;
+    font-size: 3vw;
+    padding: 0.7vw;
+  }
+}
+
+#profilJoueur .badgeItem:hover .badgeName {
+  display: block;
+  z-index: 10;
+}
+
+#profilJoueur .badgeItem .badgeNbr {
+  color: #fdfcf6;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background-color: #0f0f0f;
+  padding: 0.1vw;
+  font-size: 1vw;
+}
+
+@media screen and (min-height: 100vw) {
+  #profilJoueur .badgeItem .badgeNbr {
+    padding: 0.2vw;
+    font-size: 2vw;
+  }
+}
+
+#profilJoueur #profilJoueurInventaireItem {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[8];
+      grid-template-columns: repeat(8, 1fr);
+  grid-gap: 0px;
 }
 
 .popUpConfirmLoadSave i {
@@ -789,7 +915,7 @@ footer {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .popUp, #popUpConfirmPath {
