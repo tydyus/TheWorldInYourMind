@@ -2,11 +2,12 @@
 @import "./abstracts/other";
 @import "./components/header";
 @import "./components/main";
-@import "./components/node";
-@import "./components/path";
 @import "./components/footer";
 @import "./components/text";
+@import "./components/notification";
 //game
+@import "./components/node";
+@import "./components/path";
 @import "./components/profilInGame/profil";
 //loadGame
 @import "./components/loadGame";

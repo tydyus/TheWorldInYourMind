@@ -9,8 +9,7 @@ import {NodeElement} from "./node";
 import {PathsElement} from "./paths";
 import {Node, findNode} from "../../../Types/nodeType";
 import {goToPath} from "../rule/validationPath";
-import {eventPlayerProfil} from "./playerProfil"
-import {eventGame} from "./../Game";
+import {eventPlayerProfil} from "./playerProfil";
 
 export const Main = () => {
     return `

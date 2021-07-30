@@ -48,26 +48,28 @@ header{
             position: relative;
             input, .checkboxDeco{
                 position: absolute;
-                top: 10%;
-                left: 10%;
-                border-radius: 100%;
-                height: 80%;
-                width: 80%;
+                top: 0%;
+                left: 0%;
+                height: 100%;
+                width: 100%;
                 margin:0;
             }
             input{
                 z-index: 4; 
                 opacity: 0;
                 &:hover ~ .checkboxDeco{
-                    background: $wrapperFond;
+                    background: url("../img/ico-profil.png"),$yellow;
+                    background-size: contain;
                 }
                 &:checked ~ .checkboxDeco{
-                    background: $wrapperFondSh;
+                    background: url("../img/ico-profil.png"),$yellow;
+                    background-size: contain;
                 }
             }
             .checkboxDeco{
                 z-index: 3;
-                background: $yellow;
+                background: url("../img/ico-profil.png");
+                background-size: contain;
             }
         }
     }

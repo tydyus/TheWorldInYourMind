@@ -1,0 +1,30 @@
+.notificationPopUp{
+    z-index: 10000;
+    position: absolute;
+    height: 10vh;
+    top: -15vh;
+    width: 30vw;
+    left: 55vw;
+    @media screen and (min-height: 100vw){
+        width: 90vw;
+        left: 5vw;
+    }
+    background: $bg;
+    border:$border;
+    animation: 3s showandhidethisnotif;
+
+    //content
+    display: flex;
+    img{height: 10vh;width: 10vh;}
+    p{
+        padding:3vh;
+        font-size:3vh;
+    }
+}
+
+@keyframes showandhidethisnotif{
+ 0% {transform: translateY(0);}
+ 33% {transform: translateY(16vh);} 
+ 66% {transform: translateY(16vh);}
+ 100% {transform: translateY(0);}
+}
