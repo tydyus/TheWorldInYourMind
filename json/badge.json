@@ -21,5 +21,14 @@
         "img":"clef01",
         "tag":["quest","unique"],
         "incremental":false
+    },
+    {
+        "id":"bonbon",
+        "type":"item",
+        "name":"Bonbon",
+        "description":"Petit bonbon acidulé, vous en prenez systématiquement un tout les matins, votre plus grosse drogue vous vous répetez souvent.",
+        "img":"bonbon01",
+        "tag":["food"],
+        "incremental":true
     }
 ]

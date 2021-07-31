@@ -39,7 +39,7 @@ export const eventPlayerProfil = (info:Info) => {
                     (document.getElementById("profilJoueurInventaireItem") as HTMLElement).innerHTML +=
                     `<div class="badge badgeItem" id="badgesItem${i}">
                         <p class="badgeName">${badgeInfo["name"]}</p>
-                        <p class="badgeNbr">${badges[i].nbr > 0? `(${badges[i].nbr})`:""}</p>
+                        <p class="badgeNbr">${badges[i].nbr > 0? `${badges[i].nbr}`:""}</p>
                     </div>`
                     const b = (document.getElementById(`badgesItem${i}`) as HTMLElement);
                     b.style.background = `url("./img/badge/${badgeInfo["img"] == "" ? "none":badgeInfo["img"]}.png")`;
@@ -56,5 +56,12 @@ export const eventPlayerProfil = (info:Info) => {
         }
         
     }
-
+    //inventaire charge test
+    // for (let i = 0; i < 100; i++){
+    //     (document.getElementById("profilJoueurInventaireItem") as HTMLElement).innerHTML +=
+    //                 `<div class="badge badgeItem" id="badgesItem${i}">
+    //                     <p class="badgeName">BadgeTest${i}</p>
+    //                     <p class="badgeNbr">${i}</p>
+    //                 </div>`
+    // }
 }

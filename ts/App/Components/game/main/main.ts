@@ -33,7 +33,7 @@ export const MainContent = async(info:Info,db: firebase.firestore.Firestore,user
     (document.querySelector(".node .deco") as HTMLElement).style.backgroundSize ="contain";
     //
     (document.getElementById("paths") as HTMLElement).innerHTML
-        = await PathsElement(actualNode["paths"],db,user);
+        = await PathsElement(actualNode["paths"],info,db,user);
 }
 export const eventMain = (info:Info, db: firebase.firestore.Firestore,user:firebase.User|null,auth:firebase.auth.Auth) => {
     //profilPlayer
@@ -104,9 +104,9 @@ export const eventMain = (info:Info, db: firebase.firestore.Firestore,user:fireb
     
 
 }
-export const majMain = async (idNode = 0, db: firebase.firestore.Firestore,user:firebase.User|null) => {
+export const majMain = async (idNode = 0,info:Info, db: firebase.firestore.Firestore,user:firebase.User|null) => {
     const data = require("../../../../../json/paths.json") as Array<Node>;
     const actualNode = findNode(data,idNode);
     (document.getElementById("node") as HTMLElement).innerHTML = NodeElement(actualNode);
-    (document.getElementById("paths") as HTMLElement).innerHTML = await PathsElement(actualNode["paths"],db,user);
+    (document.getElementById("paths") as HTMLElement).innerHTML = await PathsElement(actualNode["paths"],info,db,user);
 }

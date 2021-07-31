@@ -4,7 +4,7 @@
     height: 10vh;
     top: -15vh;
     width: 30vw;
-    left: 55vw;
+    left: calc(50% - 15vw);
     @media screen and (min-height: 100vw){
         width: 90vw;
         left: 5vw;
@@ -18,7 +18,8 @@
     img{height: 10vh;width: 10vh;}
     p{
         padding:3vh;
-        font-size:3vh;
+        font-size:2vh;
+        
     }
 }
 

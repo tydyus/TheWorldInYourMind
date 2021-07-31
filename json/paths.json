@@ -24,7 +24,7 @@
                 "tag":"/"
             },
             {
-                "content" :"p-narrator$Changer d'avis, pourquoi ce faire autant de soucis par rapport au taf?$close$p-talk-me$It takes little to be happy. Truly very little to be happy. We must satisfy our necessities. That we are given by nature...$closespan-tone$chantonne$close$p-narrator$Vous commencer à chantonner tout en trainassant au lit$close",
+                "content" :"p-narrator$Changer d'avis, pourquoi ce faire autant de soucis par rapport au taf?$close$p-narrator$It takes little to be happy. Truly very little to be happy. We must satisfy our necessities. That we are given by nature...$closespan-tone$chantonne$close$p-narrator$Vous commencer à chantonner tout en trainassant au lit$close",
                 "pathID": 1,
                 "tag":"give=chanteur_0"
             }     
@@ -38,25 +38,25 @@
         "location" : "montagne",
         "focal" : "weird_boy",
         "name" : "Chambre",
-        "content" : "p-talk-npc$Chambre$close$",
+        "content" : "p-narrator$Votre chambre.$close$p-narrator$Une petite pièce cosy donnant sur un Balcon, une Salle de bain, et le Salon.$close$p-narrator$Quelque affaires trainent à même le sol, signe que vous êtes rentrez tard hier, mais la pièce est globalement bien rangé.$close",
         "paths":[
             {
-                "content" : "p-talk-me$Salon$close",
+                "content" : "p-narrator$Aller vers le Salon.$close",
                 "pathID": 2,
                 "tag":"/"
             },
             {
-                "content" : "p-talk-me$Balcon$close",
+                "content" : "p-narrator$Aller prendre l'air sur le Balcon.$close",
                 "pathID": 5,
                 "tag":"/"
             },
             {
-                "content" : "p-talk-me$Salle de bain$close",
+                "content" : "p-narrator$Aller dans la Salle de bain.$close",
                 "pathID": 4,
                 "tag":"/"
             }    
         ],
-        "tag":"give=marcheur_0"
+        "tag":"/"
     },
     {
         "id" : 2,
@@ -65,30 +65,50 @@
         "location" : "montagne",
         "focal" : "weird_boy",
         "name" : "Salon",
-        "content" : "p-talk-npc$Salon$close$",
+        "content" : "p-narrator$Le salon.$close$p-narrator$Pièce central de votre appartement il donne sur votre chambre, la cuisine, l'entrée, et les toilettes.$close$p-narrator$Une odeur de café ce fait sentir venant de la cuisine.$close$",
         "paths":[
+            {
+                "content": "p-narrator$Des bonbons traine sur la table, votre bouche salive à les voir et vous ne pouvez vous empecher de garder un oeil sur eux.$close",
+                "pathID" : 2,
+                "tag" : "decorator=blacklist,bonbon_0"
+            },
             {
                 "content" : "p-narrator$La Clef de votre dressing traine sur la table, la prendre?$close",
                 "pathID": 2,
                 "tag":"needToSee=blacklist,clef-dressing_0$give=clef-dressing_0"
             },
             {
-                "content" : "p-talk-me$Chambre$close",
+                "content": "p-narrator$Des bonbons traine sur la table, vous en prenez un.$close",
+                "pathID" : 2,
+                "tag" : "give=bonbon_1"
+            },
+            {
+                "content": "p-narrator$Remettre un bonbon sur la table.$close",
+                "pathID" : 2,
+                "tag" : "needToSee=whitelist,bonbon_1$take=bonbon_1"
+            },
+            {
+                "content": "p-narrator$Remettre tout les bonbons sur la table.$close",
+                "pathID" : 2,
+                "tag" : "needToSee=whitelist,bonbon_3$take=bonbon_1000"
+            },
+            {
+                "content" : "p-narrator$Retourner dans votre Chambre$close",
                 "pathID": 1,
                 "tag":"/"
             },
             {
-                "content" : "p-talk-me$Cuisine$close",
+                "content" : "p-narrator$Aller vers la Cuisine$close",
                 "pathID": 3,
                 "tag":"/"
             },
             {
-                "content" : "p-talk-me$Entrée$close",
+                "content" : "p-narrator$Aller vers l'Entrée$close",
                 "pathID": 6,
                 "tag":"/"
             },
             {
-                "content" : "p-talk-me$WC$close",
+                "content" : "p-narrator$Aller aux toilettes$close",
                 "pathID": 8,
                 "tag":"/"
             }   
@@ -102,10 +122,10 @@
         "location" : "montagne",
         "focal" : "weird_boy",
         "name" : "Cuisine",
-        "content" : "p-talk-npc$Cuisine$close$",
+        "content" : "p-narrator$Cuisine$close$",
         "paths":[
             {
-                "content" : "p-talk-me$Salon$close",
+                "content" : "p-narrator$Salon$close",
                 "pathID": 2,
                 "tag":"/"
             }  
@@ -119,10 +139,10 @@
         "location" : "montagne",
         "focal" : "weird_boy",
         "name" : "Salle de Bain",
-        "content" : "p-talk-npc$Salle de Bain$close$",
+        "content" : "p-narrator$Salle de Bain$close$",
         "paths":[
             {
-                "content" : "p-talk-me$Chambre$close",
+                "content" : "p-narrator$Chambre$close",
                 "pathID": 1,
                 "tag":"/"
             } 
@@ -136,10 +156,10 @@
         "location" : "montagne",
         "focal" : "weird_boy",
         "name" : "Balcon",
-        "content" : "p-talk-npc$Balcon$close$",
+        "content" : "p-narrator$Balcon$close$",
         "paths":[
             {
-                "content" : "p-talk-me$Chambre$close",
+                "content" : "p-narrator$Chambre$close",
                 "pathID": 1,
                 "tag":"/"
             } 
@@ -153,20 +173,20 @@
         "location" : "montagne",
         "focal" : "weird_boy",
         "name" : "Entrée",
-        "content" : "p-talk-npc$Entrée$close$",
+        "content" : "p-narrator$Entrée$close$",
         "paths":[
             {
-                "content" : "p-talk-me$Salon$close",
+                "content" : "p-narrator$Salon$close",
                 "pathID": 2,
                 "tag":"/"
             },
             {
-                "content" : "p-talk-me$Dressing$close",
+                "content" : "p-narrator$Dressing$close",
                 "pathID": 7,
                 "tag":"needToSee=whitelist,clef-dressing_0"
             },
             {
-                "content" : "p-talk-me$Sortie$close",
+                "content" : "p-narrator$Sortie$close",
                 "pathID": 9,
                 "tag":"/"
             }
@@ -180,10 +200,10 @@
         "location" : "montagne",
         "focal" : "weird_boy",
         "name" : "Dressing",
-        "content" : "p-talk-npc$Dressing$close$",
+        "content" : "p-narrator$Dressing$close$",
         "paths":[
             {
-                "content" : "p-talk-me$Entrée$close",
+                "content" : "p-narrator$Entrée$close",
                 "pathID": 6,
                 "tag":"/"
             }
@@ -197,10 +217,10 @@
         "location" : "montagne",
         "focal" : "weird_boy",
         "name" : "WC",
-        "content" : "p-talk-npc$WC$close$",
+        "content" : "p-narrator$WC$close$",
         "paths":[
             {
-                "content" : "p-talk-me$Salon$close",
+                "content" : "p-narrator$Salon$close",
                 "pathID": 2,
                 "tag":"/"
             }
@@ -214,10 +234,10 @@
         "location" : "montagne",
         "focal" : "weird_boy",
         "name" : "Sortie",
-        "content" : "p-talk-npc$WC$Sortie$",
+        "content" : "p-narrator$WC$Sortie$",
         "paths":[
             {
-                "content" : "p-talk-me$Entrée$close",
+                "content" : "p-narrator$Entrée$close",
                 "pathID": 6,
                 "tag":"/"
             }

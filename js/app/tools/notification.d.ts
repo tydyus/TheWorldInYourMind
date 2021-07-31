@@ -1,1 +1,1 @@
-export declare const addNotification: (content?: string, imgURL?: string) => void;
+export declare const addNotification: (content?: string, imgURL?: string) => Promise<void>;
