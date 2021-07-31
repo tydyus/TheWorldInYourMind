@@ -29,11 +29,15 @@ export const PathsElement = async (paths:Array<Path>,info:Info,db: firebase.fire
             :""}
             </div>
             `  ;
-            decoratorpath && needToSee(paths[index].tag.split("="),info) &&
+            decoratorpath && needToSee(paths[index].tag.split("$")[0].split("="),info) &&
                 ((document.getElementById("nodeContent") as HTMLElement).innerHTML 
                     += parsingText(paths[index].content));
         }
     }
+    paths.length == 0 ? (document.getElementById("mainGame") as HTMLElement)
+        .classList.add("noPaths")
+        :(document.getElementById("mainGame") as HTMLElement)
+        .classList.remove("noPaths");
     
     return render;
 }

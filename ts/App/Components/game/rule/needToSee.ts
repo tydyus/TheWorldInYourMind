@@ -9,7 +9,7 @@ export const needToSee = (needBrute:Array<string>,info:Info):boolean => {
     let rules: Array<{type:string,badges:Array<string>, badgesNbr:Array<number>}> = []
     let badgeUser = setBadgeUsertoData(info);
     
-    //set rule
+    //set rule        
     for (let ruleIndex = 1; ruleIndex < needBrute.length; ruleIndex++) {
         let b:Array<string> = []
         let bNbr:Array<number> = []

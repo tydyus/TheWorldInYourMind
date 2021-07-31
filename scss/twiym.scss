@@ -1,0 +1,158 @@
+@import "./abstracts/colors";
+@import "./abstracts/other";
+@import "./components/header";
+@import "./components/main";
+@import "./components/footer";
+@import "./components/text";
+@import "./components/notification";
+//game
+@import "./components/node";
+@import "./components/path";
+@import "./components/profilInGame/profil";
+//loadGame
+@import "./components/loadGame";
+//firebase
+@import "./components/firebaseLog";
+
+.wrapper{
+    margin: 0;
+    padding: 5vh 5vw 5vh 5vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 90vw;
+    height: 90vh;
+    overflow: hidden;
+    background: 
+    linear-gradient(180deg, transparent calc(22vh - 1px), $wrapperFondSh calc(22vh - 1px), $wrapperFondSh calc(22vh + 1px), transparent calc(22vh + 1px))
+    ,linear-gradient(90deg, transparent calc(17vh + 5vw - 1px), $wrapperFondSh calc(17vh + 5vw - 1px), $wrapperFondSh calc(17vh + 5vw + 1px), transparent calc(17vh + 5vw + 1px))
+    ,linear-gradient(90deg, $wrapperFond 5vw, transparent 5vw)
+    ,linear-gradient(180deg, $wrapperFond 5vh, transparent 5vh)
+    ,linear-gradient(90deg,Transparent 96vw, $wrapperFond 96vw)
+    ,linear-gradient(180deg, Transparent 98vh, $wrapperFond 98vh)
+    ,linear-gradient(90deg,Transparent 95vw, $wrapperFondSh 95vw, $wrapperFondSh 96vw,Transparent 96vw)
+    ,linear-gradient(180deg, Transparent 97vh, $wrapperFondSh 97vh, $wrapperFondSh 98vh, Transparent 98vh)
+    ,$bg;//bg
+    display: grid;
+    grid-template-rows: 17vh 67vh 8vh;
+    grid-template-areas: "head""main""foot";
+    @media screen and (min-height: 100vw){ //verticale
+        grid-template-rows: 17vw calc(80vh - 17vw - 8vw) 8vw;
+        background:
+    linear-gradient(180deg, transparent calc(17vw + 5vh  - 1px), $wrapperFondSh calc(17vw + 5vh  - 1px), $wrapperFondSh calc(17vw + 5vh  + 1px), transparent calc(17vw + 5vh  + 1px))
+    ,linear-gradient(90deg, transparent calc(17vw + 5vw - 1px), $wrapperFondSh calc(17vw + 5vw - 1px), $wrapperFondSh calc(17vw + 5vw + 1px), transparent calc(17vw + 5vw + 1px))
+    ,linear-gradient(90deg, $wrapperFond 5vw, transparent 5vw)
+    ,linear-gradient(180deg, $wrapperFond 5vh, transparent 5vh)
+    ,linear-gradient(90deg,Transparent 96vw, $wrapperFond 96vw)
+    ,linear-gradient(180deg, Transparent 86vh, $wrapperFond 86vh)
+    ,linear-gradient(90deg,Transparent 95vw, $wrapperFondSh 95vw, $wrapperFondSh 96vw,Transparent 96vw)
+    ,linear-gradient(180deg, Transparent 85vh, $wrapperFondSh 85vh, $wrapperFondSh 86vh, Transparent 86vh)
+    ,$bg;
+    }
+}
+header{
+    grid-area: head;
+    border: 1px solid $black;
+}
+main{
+    grid-area: main;
+    border-right: 1px solid $black;
+    border-left: 1px solid $black;
+}
+footer{
+    grid-area: foot;
+    border: 1px solid $black;
+}
+
+.hidden{display: none !important;}
+.popUp, #popUpConfirmPath{
+    z-index: 1000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: $bgHachureLight;
+    overflow: hidden;
+    > div{
+        width: 40vw;
+        height: 40vh;
+        margin: 30vh 30vw 30vh 30vw;
+        border: $border;
+        background: $bg;
+        display: grid;
+        grid-template-areas: "head" "texte" "choice";
+        grid-template-columns: 40vw;
+        grid-template-rows: 8vh 24vh 8vh;
+        > .head{
+            grid-area: head;
+            border-bottom: $border;
+            display: grid;
+            grid-template-areas: "--- close";
+            grid-template-columns: auto 8vh;
+            > .close{grid-area:close; border-left: $border;
+            background: $bgDiagonale;
+            }
+        }
+        > .text{grid-area: texte; border-bottom: $border;}
+        > .choice{grid-area: choice;}
+    }
+}
+.spinnerOnLoad{
+    position: absolute;
+    top: calc(50% - 2.5em);
+    left: calc(50% - 2.5em);
+    width: 5em;
+    height: 5em;
+    > i{
+
+        font-size: 5em;
+        animation: 2s linear spine infinite ;
+    }
+}
+@keyframes spine {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+
+
+.decoHideInput{
+    position: relative;
+    height: 100%;
+    min-height: 20px;
+    width: 100%;
+    [type="checkbox"]{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 3;
+        opacity: 0;
+    }
+    .decoInput{
+        position: absolute;   
+        top: 0;
+        left: 0; 
+        height: 100%;
+        width: 100%;
+        z-index: 2;
+    }
+    .hiddenByInput{display:none}
+
+    [type="checkbox"]:checked{
+        width: 80%;
+    }
+    [type="checkbox"]:checked ~ .decoInput{
+        width: 80%;
+    }
+    [type="checkbox"]:checked ~ .hiddenByInput{
+        display:inline-block;
+        position: absolute;   
+        top: 0;
+        right: 0; 
+        height: 100%;
+        width: 20%;
+        z-index: 2;
+    }
+}

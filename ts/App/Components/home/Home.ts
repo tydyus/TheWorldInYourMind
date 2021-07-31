@@ -33,7 +33,7 @@ export const Home = (info:Info,user:firebase.User|null) => {
     <header>
         ${Header(user)}
     </header>
-    <main>
+    <main class="noPaths">
         ${Main()}
     </main>
     <footer>

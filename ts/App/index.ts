@@ -11,18 +11,10 @@ import {loadGame, eventLoadGame} from "./Components/loadGame/loadGame";
 import {newGame, eventNewGame} from "./Components/newGame/newGame";
 import {Home, eventHome} from "./Components/home/Home";
 
-
+const TwiymData = require("../../json/interface.json") as any;
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-    apiKey: "AIzaSyBQxRY1533wvbWdbDY-xl2DoDuep3Uycs4",
-    authDomain: "theworldinyourmind.firebaseapp.com",
-    projectId: "theworldinyourmind",
-    storageBucket: "theworldinyourmind.appspot.com",
-    messagingSenderId: "195875495092",
-    appId: "1:195875495092:web:6e874c898958eee4b60be1",
-    measurementId: "G-NGEC702B4K"
-};
+const firebaseConfig = TwiymData["firebase"];
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();

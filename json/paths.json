@@ -236,11 +236,6 @@
         "name" : "Sortie",
         "content" : "p-narrator$WC$Sortie$",
         "paths":[
-            {
-                "content" : "p-narrator$Entrée$close",
-                "pathID": 6,
-                "tag":"/"
-            }
         ],
         "tag":"/"
     }
