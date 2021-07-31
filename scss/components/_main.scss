@@ -1,7 +1,20 @@
 main{
     display: grid;
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
+    scrollbar-width: thin;  /* Firefox */
+    scrollbar-color: $black transparent;
+    &::-webkit-scrollbar{
+        width: 5px;
+    }
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: $black;
+        border-radius: 66px;
+        border: none;
+    }
     grid-template-columns: 17vh auto 40% ;
     grid-template-rows: auto;
     grid-template-areas: "a b c";

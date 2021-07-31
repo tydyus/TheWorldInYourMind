@@ -24,7 +24,7 @@
                 "tag":"/"
             },
             {
-                "content" :"p-narrator$Changer d'avis, pourquoi ce faire autant de soucis par rapport au taf?$close$p-narrator$It takes little to be happy. Truly very little to be happy. We must satisfy our necessities. That we are given by nature...$closespan-tone$chantonne$close$p-narrator$Vous commencer à chantonner tout en trainassant au lit$close",
+                "content" :"p-narrator$Changer d'avis, pourquoi ce faire autant de soucis par rapport au taf?$close$p-talk-me$It takes little to be happy. Truly very little to be happy. We must satisfy our necessities. That we are given by nature...$closespan-tone$chantonne$close$p-narrator$Vous commencer à chantonner tout en trainassant au lit$close",
                 "pathID": 1,
                 "tag":"give=chanteur_0"
             }     
