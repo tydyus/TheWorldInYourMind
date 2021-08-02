@@ -6,7 +6,7 @@ var firebaseui = require('firebaseui');
 export const User = (user:firebase.User|null) => {
     let render = "";
     render += user?
-    `<div id="linkToLogInOutUser">LogOut</div>`
+    `<div id="linkToLogInOutUser">${user.email}(LogOut)</div>`
     :`<div id="linkToLogInOutUser">Login/Sign in</div>`;
 
     //popUpConnection/Deconnection

@@ -1,14 +1,5 @@
 {
     "title":"The World In Your Mind",
-    "home":[
-        {"l":"<div class=`interfaceHomeLeft`>"},
-            {"l":"<p>Bienvenue sur le projet d'exemple du template web TheWorldInYourMind, Twiym.</p>"},
-            {"l":"<p>Ecris en vanilla Typescript avec une base de donné NoSQL via l'outil fireBase de google Twiym propose une configuration facile d'un rpg textuel web juste via la configuration de trois fichiers json et d'un fichier css.</p>"},
-            {"l":"<p>Pour pouvoir commencer à utilisé Twiym je vous invite à aller sur la doc: link.</p>"},
-            {"l":"<p>Sinon si vous voulez tester Twiym vous pouvez creer un perso ici:link et fare la courte histoire de démo present dans ce projet.</p>"},
-        {"l":"</div><div class=`interfaceHomeRight`>"},           
-        {"l":"</div>"}
-    ],
     "firebase":{
         "apiKey": "AIzaSyBQxRY1533wvbWdbDY-xl2DoDuep3Uycs4",
         "authDomain": "theworldinyourmind.firebaseapp.com",

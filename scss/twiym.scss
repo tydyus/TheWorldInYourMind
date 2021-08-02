@@ -156,3 +156,22 @@ footer{
         z-index: 2;
     }
 }
+
+#linkToLogInOutUser{
+    position: absolute;
+    top: 1.5vh;
+    right: 5vw;
+    font-size: 2.5vh;
+}
+button{
+    border:none;
+    background: $bg;
+    &:hover{
+        background: $black;
+        color:$bg;
+    }
+}
+[type="checkbox"]:hover ~ button.decoInput{
+    background: $black;
+    color:$bg;
+}

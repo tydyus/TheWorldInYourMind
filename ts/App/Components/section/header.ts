@@ -7,6 +7,7 @@ import "firebase/firestore";
 import {User, eventUser} from "./header/user"
 
 export const Header = (user:firebase.User|null,pic="",info="",navA="") => {
+    //(document.body as HTMLElement).innerHTML+=User(user);
     return `
     <div class="a" id="profilPicture">
         ${pic}

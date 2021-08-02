@@ -724,8 +724,25 @@ p .name {
 
 #profilJoueur .inventaireTabMaster {
   position: relative;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
+  scrollbar-width: thin;
+  /* Firefox */
+  scrollbar-color: #0f0f0f transparent;
+}
+
+#profilJoueur .inventaireTabMaster::-webkit-scrollbar {
+  width: 5px;
+}
+
+#profilJoueur .inventaireTabMaster::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#profilJoueur .inventaireTabMaster::-webkit-scrollbar-thumb {
+  background-color: #0f0f0f;
+  border-radius: 66px;
+  border: none;
 }
 
 #profilJoueur .inventaireTab {
@@ -1181,5 +1198,27 @@ footer {
   height: 100%;
   width: 20%;
   z-index: 2;
+}
+
+#linkToLogInOutUser {
+  position: absolute;
+  top: 1.5vh;
+  right: 5vw;
+  font-size: 2.5vh;
+}
+
+button {
+  border: none;
+  background: #fdfcf6;
+}
+
+button:hover {
+  background: #0f0f0f;
+  color: #fdfcf6;
+}
+
+[type="checkbox"]:hover ~ button.decoInput {
+  background: #0f0f0f;
+  color: #fdfcf6;
 }
 /*# sourceMappingURL=twiym.css.map */

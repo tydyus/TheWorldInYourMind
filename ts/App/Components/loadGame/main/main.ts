@@ -9,7 +9,7 @@ import {deleteSave} from "../../../tools/encoding"
 export const Main = (db:firebase.firestore.Firestore) => {
     return `
     <div class="a"></div>
-    <div class="b node" id="node">
+    <div class="b node" id="previewSave">
     
     </div>
     <div class="c paths" id="saveSlot">
