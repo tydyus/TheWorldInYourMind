@@ -8,5 +8,31 @@
         "messagingSenderId": "195875495092",
         "appId": "1:195875495092:web:6e874c898958eee4b60be1",
         "measurementId": "G-NGEC702B4K"
-    }
+    },
+    "newPerso":{
+    "page": "game",
+    "game": {
+        "user":{
+            "name":"name",
+            "badges":[
+                {
+                    "name":"dexterite", 
+                    "nbr":"20"
+                },
+                {
+                    "name":"force", 
+                    "nbr":"20"
+                },
+                {
+                    "name":"intelligence", 
+                    "nbr":"20"
+                },
+                {
+                    "name":"volonte", 
+                    "nbr":"20"
+                }
+            ]
+        },
+        "node": 0
+    }}
 }

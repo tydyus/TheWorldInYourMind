@@ -9,7 +9,7 @@ import {NodeElement} from "./node";
 import {PathsElement} from "./paths";
 import {Node, findNode} from "../../../Types/nodeType";
 import {goToPath} from "../rule/validationPath";
-import {eventPlayerProfil} from "./playerProfil";
+import {eventPlayerProfil} from "../profil/playerProfil";
 
 export const Main = () => {
     return `

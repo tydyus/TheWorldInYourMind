@@ -102,4 +102,27 @@
         grid-template-columns: repeat(5, 1fr);
         grid-gap: 0px;
     }
+    #profilJoueurInfoProfil{
+        display: grid;
+        position: relative;
+        .badgeSkill{
+            display: flex;
+            justify-content: space-between;
+            border-bottom: $border;
+            img{
+                width: 10vh;
+                border-right: $border;
+            }
+            .badgeNbr{
+                width: 10vh;
+                border-left: $border;
+            }
+            > p{
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+        }
+    }
 }

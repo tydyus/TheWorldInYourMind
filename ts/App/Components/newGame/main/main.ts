@@ -4,7 +4,8 @@ import "firebase/analytics";
 import "firebase/auth";
 import "firebase/firestore";
 //local
-import {CreateOn, parseData} from "../../../tools/encoding";
+import {CreateOn, parseData, stringifyData} from "../../../tools/encoding";
+import {Info} from "../../../Types/infoType";
 
 
 export const Main = () => {
@@ -36,8 +37,9 @@ export const newGame = (db: firebase.firestore.Firestore,user:firebase.User|null
     if (error == "") 
     {
         //save de base mis dans data
-        const data = `page=game!gameUserName=${name.value}!gameUserBadges=joueur_0!node=0`;
-        CreateOn(name.value, parseData(data), db,user,auth).then(_ =>
+        let data = (require("../../../../../json/interface.json") as any).newPerso as Info;
+        data.game.user.name = name.value;
+        CreateOn(name.value, data, db,user,auth).then(_ =>
             document.location.href=`?user=${name.value}`)
     }
     else {

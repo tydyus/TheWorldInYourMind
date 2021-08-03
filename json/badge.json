@@ -8,8 +8,34 @@
         "incremental":false
     },
     {
-        "id":"hate",
-        "type":"feeling",
+        "id":"dexterite",
+        "type":"skill",
+        "name":"Dextérité",
+        "img":"",
+        "tag":[],
+        "incremental":true
+    },
+    {
+        "id":"force",
+        "type":"skill",
+        "name":"Force",
+        "img":"",
+        "tag":[],
+        "incremental":true
+    },
+    {
+        "id":"intelligence",
+        "type":"skill",
+        "name":"Intelligence",
+        "img":"",
+        "tag":[],
+        "incremental":true
+    },
+    {
+        "id":"volonte",
+        "type":"skill",
+        "name":"Volonté",
+        "img":"",
         "tag":[],
         "incremental":true
     },
