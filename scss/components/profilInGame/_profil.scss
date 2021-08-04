@@ -126,3 +126,15 @@
         }
     }
 }
+.profilInfoLogoHome{
+    background: $wrapperFondSh;
+    height: 100%;
+    svg{
+        padding:10px;
+        width: calc(10vw + 20vh);
+        @media screen and (min-height: 100vw){width: 30vw;}
+    }
+}
+.svgLogo{
+    fill: $bg;
+}

@@ -5,7 +5,7 @@ import "firebase/auth";
 import "firebase/firestore";
 //local
 import {Info} from "../../../Types/infoType";
-import { Header, eventHeader } from "../../section/header";
+import { Header, eventHeader } from "../header/header";
 
 export const Profil = (info:Info,user:firebase.User|null) => {
     let profilPic = `<img src="./img/tof.png" alt="">`;

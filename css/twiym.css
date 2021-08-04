@@ -863,6 +863,26 @@ p .name {
           justify-content: center;
 }
 
+.profilInfoLogoHome {
+  background: #5a20b8;
+  height: 100%;
+}
+
+.profilInfoLogoHome svg {
+  padding: 10px;
+  width: calc(10vw + 20vh);
+}
+
+@media screen and (min-height: 100vw) {
+  .profilInfoLogoHome svg {
+    width: 30vw;
+  }
+}
+
+.svgLogo {
+  fill: #fdfcf6;
+}
+
 .popUpConfirmLoadSave i {
   font-size: 2vh;
 }
@@ -1248,7 +1268,8 @@ footer {
 }
 
 button {
-  border: none;
+  border: 1px solid #0f0f0f;
+  min-height: 10px;
   background: #fdfcf6;
 }
 

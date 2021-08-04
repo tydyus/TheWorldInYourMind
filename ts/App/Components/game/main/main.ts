@@ -72,9 +72,6 @@ export const eventMain = (info:Info, db: firebase.firestore.Firestore,user:fireb
             
             validPath(paths[index].id);  
             const popUpChoiceYes = document.getElementById('popUpChoiceYes') as HTMLElement;
-            // popUpChoiceYes.classList.forEach(c => {popUpChoiceYes.classList.remove(c)} );
-            // popUpChoiceYes.classList.add(paths[index].classList[1]);
-            // popUpChoiceYes.classList.add(paths[index].id);
             popUpChoiceYes.setAttribute("class", `${paths[index].classList[1]} ${paths[index].id}`)
         });
     }

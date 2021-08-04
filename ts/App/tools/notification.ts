@@ -1,5 +1,5 @@
 export const addNotification = async (content = "", imgURL = "") => {
-    await sleep(3000);
+    await sleep(2000);
     const idNotif = `notif${Math.floor(Math.random()*10000)}`;
     (document.getElementById("notificationWrapper") as HTMLElement).innerHTML+=`
     <div id="${idNotif}" class="notificationPopUp">

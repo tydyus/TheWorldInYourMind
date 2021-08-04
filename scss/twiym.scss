@@ -60,7 +60,7 @@ main{
     border-left: 1px solid $black;
 }
 footer{
-    grid-area: foot;
+   grid-area: foot;
     border: 1px solid $black;
 }
 
@@ -164,7 +164,8 @@ footer{
     font-size: 2.5vh;
 }
 button{
-    border:none;
+    border:$border;
+    min-height: 10px;
     background: $bg;
     &:hover{
         background: $black;

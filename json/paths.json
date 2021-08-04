@@ -3,8 +3,8 @@
         "id" : 0,
         "parentID": 1,
         "type" : "location",
-        "location" : "montagne",
-        "focal" : "weird_boy",
+        "location" : "chambre",
+        "focal" : "",
         "name" : "FIRST-SCENE",
         "content" : "p-narrator$La soirée avais été rude, vous n'aviez pas fait autant la fête depuis longtemps, et c'est que vos 29 années commençais à ce faire sentir.$close$p-narrator$Mais bon, allez, on ce lève du lit et on ce remet au taf, c'est pas en ruminant sur un léger mal de crane et les excès de la vielle que le travaille vas être fait$close",
         "paths":[
@@ -35,8 +35,8 @@
         "id" : 1,
         "parentID": -1,
         "type" : "location",
-        "location" : "montagne",
-        "focal" : "weird_boy",
+        "location" : "chambre",
+        "focal" : "",
         "name" : "Chambre",
         "content" : "p-narrator$Votre chambre.$close$p-narrator$Une petite pièce cosy donnant sur un Balcon, une Salle de bain, et le Salon.$close$p-narrator$Quelque affaires trainent à même le sol, signe que vous êtes rentrez tard hier, mais la pièce est globalement bien rangé.$close",
         "paths":[
@@ -62,8 +62,8 @@
         "id" : 2,
         "parentID": -1,
         "type" : "location",
-        "location" : "montagne",
-        "focal" : "weird_boy",
+        "location" : "salon",
+        "focal" : "",
         "name" : "Salon",
         "content" : "p-narrator$Le salon.$close$p-narrator$Pièce central de votre appartement il donne sur votre chambre, la cuisine, l'entrée, et les toilettes.$close$p-narrator$Une odeur de café ce fait sentir venant de la cuisine.$close$",
         "paths":[
@@ -153,8 +153,8 @@
         "id" : 5,
         "parentID": -1,
         "type" : "location",
-        "location" : "montagne",
-        "focal" : "weird_boy",
+        "location" : "balcon",
+        "focal" : "",          
         "name" : "Balcon",
         "content" : "p-narrator$Balcon$close$",
         "paths":[
