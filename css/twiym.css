@@ -926,6 +926,47 @@ p .name {
   bottom: 0;
 }
 
+.logInPage ul {
+  margin: 0;
+  padding: 0;
+}
+
+.logInPage li {
+  list-style: none;
+}
+
+.logInPage li span {
+  font-size: 0.8em;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.logInPage li button {
+  text-align: center;
+  width: 60vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.logInPage img {
+  height: 5vw !important;
+  width: 5vw !important;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  margin-right: 5vw !important;
+}
+
+.logInPage p {
+  font-size: 0.5em !important;
+  text-align: center;
+}
+
+.logInPage p a {
+  font-size: 0.55em !important;
+}
+
 #popUpLogInOutUser > div {
   width: 60vw;
   height: 60vh;

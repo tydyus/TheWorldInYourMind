@@ -10,6 +10,7 @@ import {Game, GameContent} from "./Components/game/Game";
 import {loadGame, eventLoadGame} from "./Components/loadGame/loadGame";
 import {newGame, eventNewGame} from "./Components/newGame/newGame";
 import {Home, eventHome} from "./Components/home/Home";
+import { eventLogIn, LogIn } from "./Components/logIn/LogIn";
 
 const TwiymData = require("../../json/interface.json") as any;
 // Your web app's Firebase configuration
@@ -67,6 +68,11 @@ const initPage = (cUser:firebase.User|null,auth:firebase.auth.Auth) => {
                     //console.log("loadGame");
                     App(loadGame(info, db, cUser));
                     eventLoadGame(info, db,cUser,auth);
+                    break;
+                case("login"):
+                    //console.log("loadGame");
+                    App(LogIn(info,cUser));
+                    eventLogIn(cUser, auth);
                     break;
                 case("newGame"):
                     //console.log("newGame");

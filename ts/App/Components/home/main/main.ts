@@ -18,6 +18,11 @@ const mainContentHtml = ()=>{
     <section class="homeSection1 center">
             <p>Bienvenue sur le projet d'exemple du template web TheWorldInYourMind, Twiym.</p>
             <p>Template Web pour gérer un rpg textuel en ligne ce voulant facilement utilisable et modulable</p>
+            
+            <p class="WIPpannel">⚠ Ce projet étant en construction toutes les fonctionnalités ne sont pas encore implémentées, de plus le visuel des pages étant en cour de finition l'actuel n'est pas à prendre comme produit final.</p>
+            
+            <br>
+            <a href="?user=load" class="btnLink">Jouer au projet d'exemple</a>
     </section>
     <div class="parralax" id="parralax1">
     </div>

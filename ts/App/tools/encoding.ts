@@ -88,6 +88,7 @@ export const stringifyData = (info:Info) => {
 }
 
 const cheminLoad = "page=loadGame!gameUserName=Nobody!gameUserBadges=joueur_0!node=0";
+const cheminLogin = "page=login!gameUserName=Nobody!gameUserBadges=joueur_0!node=0";
 const cheminNewGame = "page=newGame!gameUserName=Nobody!gameUserBadges=joueur_0!node=0";
 const cheminHome = "page=home!gameUserName=Nobody!gameUserBadges=joueur_0!node=0";
 
@@ -105,6 +106,7 @@ export const getInfo = async (nameSave:string,db: firebase.firestore.Firestore,u
     let info:Info = parseData(cheminHome);
     switch (nameSave){
         case("load"):   return parseData(cheminLoad);
+        case("login"):   return parseData(cheminLogin);
         case("newGame"):return parseData(cheminNewGame);
         case("home"):   return info;
         default:

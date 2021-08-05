@@ -41,7 +41,7 @@ export const Save = async (db:firebase.firestore.Firestore,user:firebase.User|nu
                 </div>
             `;
             target.innerHTML = render;
-        } else {document.location.href=`?user=home`;}
+        } else {document.location.href=`?user=login`;}
         
     })
 

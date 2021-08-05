@@ -53,7 +53,7 @@ export const eventUser = (user:firebase.User|null,auth:firebase.auth.Auth) => {
             addEventListener("click",switchHidden);  
 }
 
-const startUi = (user:firebase.User|null,auth:firebase.auth.Auth) => {
+export const startUi = (user:firebase.User|null,auth:firebase.auth.Auth,idHTML='#firebaseui-auth-container') => {
     if (user == null){
         const ui = new firebaseui.auth.AuthUI(auth);
         // The start method will wait until the DOM is loaded.
