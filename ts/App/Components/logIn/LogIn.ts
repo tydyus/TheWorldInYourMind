@@ -30,9 +30,9 @@ export const LogIn = (info:Info,user:firebase.User|null) => {
     <!-- ------ -->
     `
     return (`
-    <header>
+    <header class="signInPage">
     </header>
-    <main class="noPaths">
+    <main class="noPaths signInPage ">
         ${Main()}
     </main>
     <footer>

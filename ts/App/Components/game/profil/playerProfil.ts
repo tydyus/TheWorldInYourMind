@@ -31,7 +31,15 @@ export const eventPlayerProfil = (info:Info) => {
         <div id="profilJoueurInventaireCompagon" class="inventaireTab">
         </div>
     </div>`;
+    (document.querySelector("#checkboxViewBadgeProfil") as HTMLElement)
+        .addEventListener("click", _ => {
+            (document.getElementById("checkboxDecoViewBadgeProfil") as HTMLElement)
+                .classList.remove("alertNewItem");
+        })
     for (let i = 0; i < badges.length; i++) {
+        badges[i].name == "alertInventaire" &&
+            (document.getElementById("checkboxDecoViewBadgeProfil") as HTMLElement)
+            .classList.add("alertNewItem");
         if (containId(badgesData,badges[i].name)){ //present en base de donné
             const badgeInfo:any = findWithId(badgesData,badges[i].name)
             switch(badgeInfo["type"]){

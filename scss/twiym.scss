@@ -1,17 +1,19 @@
 @import "./abstracts/colors";
-@import "./abstracts/other";
-@import "./components/header";
-@import "./components/main";
-@import "./components/footer";
-@import "./components/text";
-@import "./components/notification";
-//game
+@import "./abstracts/other"; 
+@import "./components/header";    
+@import "./components/main"; 
+@import "./components/footer"; 
+@import "./components/text";  
+@import "./components/notification";    
+//game 
 @import "./components/node";
 @import "./components/path";
 @import "./components/profilInGame/profil";
-//loadGame
-@import "./components/loadGame";
-//firebase
+//loadGame  
+@import "./components/loadGame";  
+//Newgame
+@import "./components/newGame";
+//firebase 
 @import "./components/firebaseLog";
 
 .wrapper{
@@ -20,8 +22,8 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 90vw;
-    height: 90vh;
+    width: 90vw;  
+    height: 90vh;    
     overflow: hidden;
     background: 
     linear-gradient(180deg, transparent calc(22vh - 1px), $wrapperFondSh calc(22vh - 1px), $wrapperFondSh calc(22vh + 1px), transparent calc(22vh + 1px))
@@ -47,8 +49,8 @@
     ,linear-gradient(180deg, Transparent 86vh, $wrapperFond 86vh)
     ,linear-gradient(90deg,Transparent 95vw, $wrapperFondSh 95vw, $wrapperFondSh 96vw,Transparent 96vw)
     ,linear-gradient(180deg, Transparent 85vh, $wrapperFondSh 85vh, $wrapperFondSh 86vh, Transparent 86vh)
-    ,$bg;
-    } 
+    ,$bg;  
+    }  
 }
 header{
     grid-area: head;
@@ -56,10 +58,10 @@ header{
 }
 main{
     grid-area: main;
-    border-right: 1px solid $black;
+    border-right: 1px solid $black; 
     border-left: 1px solid $black;
 }
-footer{
+footer{ 
    grid-area: foot;
     border: 1px solid $black;
 }
@@ -71,32 +73,34 @@ footer{
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100vh;
-    background: $bgHachureLight;
-    overflow: hidden;
-    > div{
-        width: 40vw;
-        height: 40vh;
-        margin: 30vh 30vw 30vh 30vw;
-        border: $border;
-        background: $bg;
-        display: grid;
-        grid-template-areas: "head" "texte" "choice";
-        grid-template-columns: 40vw;
+    height: 100vh; 
+    background: $bgHachureLight;   
+    overflow: hidden;  
+    > div{             
+        width: 40vw;          
+        height: 40vh;    
+        margin: 30vh 30vw 30vh 30vw; 
+        border: $border;          
+        background: $bg;    
+        display: grid;     
+        grid-template-areas: "head" "texte" "choice";    
+        grid-template-columns: 40vw;  
         grid-template-rows: 8vh 24vh 8vh;
-        > .head{
+        > .head{ 
             grid-area: head;
             border-bottom: $border;
             display: grid;
             grid-template-areas: "--- close";
-            grid-template-columns: auto 8vh;
-            > .close{grid-area:close; border-left: $border;
-            background: $bgDiagonale;
-            }
-        }
+            grid-template-columns: auto 8vh; 
+            background: $yellow;
+            > .close{grid-area:close; border-left: $border;  
+            background: $bgDiagonale, $red;
+            }  
+        } 
         > .text{grid-area: texte; border-bottom: $border;}
         > .choice{grid-area: choice;}
     }
+    #popUpClose, #popUpChoiceYes, #popUpChoiceNo{cursor: pointer;}
 }
 .spinnerOnLoad{
     position: absolute;
@@ -164,11 +168,12 @@ footer{
     font-size: 2.5vh;
 }
 button{
-    border:$border;
+    border:$border; 
+    border-width: 5px; 
     min-height: 10px;
-    background: $bg;
+    background: $bg; 
     &:hover{
-        background: $black;
+        background: $black; 
         color:$bg;
     }
 }

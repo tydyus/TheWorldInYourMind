@@ -29,7 +29,8 @@ export const MainContent = async(info:Info,db: firebase.firestore.Firestore,user
         = NodeElement(actualNode);
     //deco fond node
     (document.querySelector(".node .deco") as HTMLElement).style.background = 
-    `url("./img/node/focal/${actualNode.focal}.png") top left / contain no-repeat, url("./img/node/location/${actualNode.location}.png") top right / contain no-repeat`;
+    `${actualNode.focal == ""?"":`url("./img/node/focal/${actualNode.focal}.png") top left / contain no-repeat, `}
+     ${actualNode.location ==""?"":`url("./img/node/location/${actualNode.location}.png") top right / contain no-repeat`}`;
     //(document.querySelector(".node .deco") as HTMLElement).style.backgroundSize ="contain";
     //
     (document.getElementById("paths") as HTMLElement).innerHTML

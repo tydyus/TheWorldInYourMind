@@ -1,3 +1,30 @@
+#profilInfo .nameSave{
+    background-color: $wrapperFondSh;
+    p {color: $bg;}
+}
+#checkboxViewBadgeProfil{cursor: pointer;
+&~ .checkboxDeco.alertNewItem::after{
+    content: "!";
+    position: absolute;
+    color:$bg;
+    background-color: $red;
+    border: $border;
+    border-radius: 100%;
+    top: 0.5vh;
+    right: 0.5vh;
+    font-size: 2vh;
+    height: 3vh;
+    width: 3vh;
+    @media screen and (min-height: 100vw){
+        top: 0.5vw;
+        right: 0.5vw;
+        font-size: 2vw;
+        height: 3vw;
+        width: 3vw;
+    }
+    text-align: center;
+}
+}
 #profilJoueur{
     position: absolute;
     top: calc(22vh - 1px);
@@ -10,7 +37,7 @@
         height: calc(80vh - 17vw - 8vw);
         width: calc(90vw - 17vw - 2px);
     }
-    background-color: $bg;
+    background-color: $wrapperFond;
     border:$border;
 
     display: grid;
@@ -31,6 +58,7 @@
 
     .inventaireTabMaster{
         position:relative;
+        background-color: $bg;
         overflow-y: auto;
         overflow-x: hidden;
         scrollbar-width: thin;  /* Firefox */
@@ -54,11 +82,11 @@
     left:0;
     width: 100%;
     border-top: $border;
-    background: $bg;
     }
 
     .badgeItem{
         position:relative;
+        background-color: $bg;
         height: 5vw;
         width: 5vw;
         margin:0.5vw;
@@ -108,6 +136,7 @@
         .badgeSkill{
             display: flex;
             justify-content: space-between;
+            background-color: $bg;
             border-bottom: $border;
             img{
                 width: 10vh;

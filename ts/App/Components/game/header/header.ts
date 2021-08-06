@@ -13,7 +13,7 @@ export const Header = (user:firebase.User|null,pic="",info="",navA="") => {
         ${pic}
     </div>
     <div class="b" id="profilInfo">
-        <div>
+        <div class="nameSave">
             ${info}
         </div>
         <div class="profilNav">

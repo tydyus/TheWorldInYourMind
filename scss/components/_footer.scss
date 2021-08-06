@@ -30,5 +30,6 @@ footer{
         >.b{grid-area:b;}
         >.a, >.b{padding:1.25vh}
         @media screen and (min-height: 100vw){>.a, >.b{padding:1.25vw}}
+        i:hover{color: $wrapperFondSh;}
     }
 }

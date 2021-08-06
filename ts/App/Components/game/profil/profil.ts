@@ -12,7 +12,7 @@ export const Profil = (info:Info,user:firebase.User|null) => {
     let profilInfo = `<p>${info.game.user.name}</p>`;
     let navA = 
     `<input type="checkbox" name="checkboxViewBadgeProfil" id="checkboxViewBadgeProfil">
-    <div class="checkboxDeco"></div>`;
+    <div class="checkboxDeco" id="checkboxDecoViewBadgeProfil"></div>`;
     return Header(user,profilPic,profilInfo,navA);
 }
 

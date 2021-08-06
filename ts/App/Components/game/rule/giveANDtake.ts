@@ -7,6 +7,7 @@ import {setBadgeUsertoData, setDatatoBadgeUser} from "./tools/tool";
 export const give = (tag:Array<string>, info:Info) => {
     let newInfo = info;
     let badgeUser= setBadgeUsertoData(newInfo);
+    let newitem = false;
     const dataBadge = require("../../../../../json/badge.json");
     for (let i= 1; i < tag.length; i++) {
         const name = tag[i].split("_")[0];
@@ -16,16 +17,28 @@ export const give = (tag:Array<string>, info:Info) => {
             const index = badgeUser["badges"].indexOf(name)
             badgeUser["badgesNbr"][index] += +nbr;
             //Add notif si l'item est incremental
-            +nbr > 0 && containId(dataBadge, name) 
-                && addNotification(`Vous avez récuperez${+nbr > 0?` ${+nbr}`:""} ${name}.`,findWithId(dataBadge,name)["img"]);
-        }
+            if (+nbr > 0 && containId(dataBadge, name) ){
+                addNotification(`Vous avez récuperez${+nbr > 0?` ${+nbr}`:""} ${name}.`,findWithId(dataBadge,name)["img"]);
+                //add notif inv
+                newitem = true;
+                }
+            }
         else 
         {
             badgeUser["badges"].push(name);
             badgeUser["badgesNbr"].push(+nbr);
             //add notif
-            containId(dataBadge, name) && addNotification(`Vous avez récuperez${+nbr > 0?` ${+nbr}`:""} ${name}.`,findWithId(dataBadge,name)["img"]);
+            if (containId(dataBadge, name))  {
+                addNotification(`Vous avez récuperez${+nbr > 0?` ${+nbr}`:""} ${name}.`,findWithId(dataBadge,name)["img"]);
+                //add notif inv
+                newitem = true;
+            }
         }
+        
+    }
+    if(newitem && !badgeUser.badges.includes("alertInventaire")) {
+        badgeUser.badges.push("alertInventaire");
+        badgeUser.badgesNbr.push(0);
     }
     newInfo.game.user.badges = setDatatoBadgeUser(badgeUser);
     return newInfo;

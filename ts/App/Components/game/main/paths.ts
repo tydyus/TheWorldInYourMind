@@ -5,7 +5,7 @@ import "firebase/auth";
 import "firebase/firestore";
 //local
 import {Info} from "../../../Types/infoType";
-import {Node} from "../../../Types/nodeType";
+import {Node, findNode} from "../../../Types/nodeType";
 import {Path} from "../../../Types/nodeType";
 import {parsingText} from "../../../tools/parsingContent";
 import {pathIsValid} from "../rule/validationPath";
@@ -25,7 +25,9 @@ export const PathsElement = async (paths:Array<Path>,info:Info,db: firebase.fire
                 </div>
                 <div class="mask"></div>
                 <div class="b confirmation"><div class="a"><i class="fas fa-chevron-right"></i>
-                </div><div class="b"></div></div>`
+                </div><div class="b
+                ${info.game.node == paths[index].pathID?` action`:` move`}">
+                </div></div>`
             :""}
             </div>
             `  ;

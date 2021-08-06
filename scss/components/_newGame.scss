@@ -1,0 +1,50 @@
+#newGameBgStory{
+    display: block;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;  /* Firefox */
+    scrollbar-color: $black transparent;
+    &::-webkit-scrollbar{
+        width: 5px;
+    }
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: $black;
+        border-radius: 66px;
+        border: none;
+    }
+    background-color: $yellow;
+    .img{
+        position:relative;
+        height: 25vh;
+        background-color: $bg;
+        img{
+            position:absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+        }
+    }
+    p {
+        font-size: 0.4em;
+        background-color: $bg;
+        &.narrator{margin:1vh 2vh 1vh 2vh;padding:0.5vh;border-radius: 0.5vh;}
+        &.talk{margin:2vh}
+    }
+}
+#formNewGame{
+    background-color: $wrapperFond;
+    .formNewGameComp{
+        display:flex;
+        flex-direction: column;
+        > p {
+            text-align: center;
+            color: $bg;
+        }
+        > input{
+            text-align: center;
+        }
+    }
+}

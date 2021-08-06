@@ -11,12 +11,15 @@ import {Info} from "../../../Types/infoType";
 export const Main = () => {
     return `
     <div class="a"></div>
-    <div class="b node" id="newGameBgStory">
-        <p class="talk npc">Bienvenue</p>
-        <p class="narrator">contexte de l'histoire</p>
+    <div class="b" id="newGameBgStory">
+        <div class="img"><img src="./img/newGame.png"></div>
+        <p class="talk npc">C'était une bonne soirée, je n'étais pas sortit dans un bar depuis longtemps mais je dois avouer que revoir mes anciens collègues était sympa.</p>
+        <p class="narrator">Vous rentrez chez vous, vos pas alourdis par l'alcool que vous avez bu. Heureusement vous n'habitez pas loins d'ici.</p>
+        <p class="talk npc">Aarf, mais pourquoi il faut qu'ils aient choisis de faire ça un dimanche soir sérieusement, déjà je me retrouve à être le premier à partir, et demain je taf quoi.. </p>
+        <p class="narrator">Baragouinant dans votre barbe vous voyez enfin votre appartement au loin, une nuit de sommeil réparatrice vous attends.</p>
     </div>
     <div class="c paths" id="formNewGame">
-        <div>
+        <div class="formNewGameComp">
             <p>Nouvelle partie</p>
             <input type="text" id="FNGname" placeholder="nom du personnage">
             <span id="FNGerror"></span>

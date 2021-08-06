@@ -10,7 +10,7 @@ export const Main = (db:firebase.firestore.Firestore) => {
     return `
     <div class="a"></div>
     <div class="b node" id="previewSave">
-    
+        <h2>Charger une partie</h2>
     </div>
     <div class="c paths" id="saveSlot">
     </div>
@@ -57,7 +57,7 @@ export const eventMain = async (db:firebase.firestore.Firestore,user:firebase.Us
                     (document.getElementById("textSaveLoadNameGlobal") as HTMLElement)
                     .innerHTML = "Commencer une nouvelle partie?";
                 else {
-                    (document.getElementById("textSaveLoadName") as HTMLElement)
+                    (document.getElementById("textPopUp") as HTMLElement)
                         .innerHTML = `"${loadSaves[index].classList[2]}"`;
                     (document.getElementById("textLoadDate") as HTMLElement)
                         .innerHTML = `<p>Date creation:${

@@ -43,10 +43,12 @@ export const pathIsValid = async (nodeToGoID:number, indexPath:number, data:Arra
 export const eventOn = (info:Info,tags:string, type:"node"|"path") => {
     let newInfo = info;
     const allTag = parseTagBasic(tags);
+    //regarde les tags
     for (let i = 0; i < allTag.length; i++) {
         switch(allTag[i][0]){
             case("give"):
                 newInfo = give(allTag[i],newInfo);
+                console.log(newInfo.game.user.badges);
                 break;
             case("take"):
                 newInfo = take(allTag[i],newInfo);
@@ -62,6 +64,7 @@ export const eventOn = (info:Info,tags:string, type:"node"|"path") => {
 export const goToPath = async (nodeToGoID:number, indexPath:number, db: firebase.firestore.Firestore,user:firebase.User|null,auth:firebase.auth.Auth) => {
     //console.log("try to go to path"+ nodeToGoID);
     const data = require("../../../../../json/paths.json") as Array<Node>;
+    
     await pathIsValid(nodeToGoID,indexPath, data, db,user).then(async valid => {
         if (valid){
             let nameSave = getNameOfUser();
@@ -70,6 +73,9 @@ export const goToPath = async (nodeToGoID:number, indexPath:number, db: firebase
                 //look info
                 await getInfo(nameSave,db,user).then(async info => {
                     if (info == undefined) return console.log("error");
+                    //clean les eventuelles alertes d'inventaire
+                    info = take(["take","alertInventaire_0"],info);
+                    // set data dans node
                     const actualNode =findNode(data, info.game.node);
                     // effet de prise du chemin
                     info = eventOn(info, actualNode.paths[indexPath].tag,"path");

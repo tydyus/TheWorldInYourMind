@@ -15,26 +15,45 @@
         border-radius: 66px;
         border: none;
     }
+    background: $wrapperFondSh;
+    border-top: 1px $wrapperFondSh solid;
     .path{
+        cursor: pointer;
         border-bottom:$border;
+        p {padding: 5px;}
         display: grid;
         grid-template-columns: 90% 5% 5%;
-        transition-duration: 1s;
+        background: $bg;
+        &.newGame{
+            background: $wrapperFondSh;
+            .content p{color: $bg;}
+            .confirmation{
+                border-color: $bg;
+                
+            }
+        }
+        //transition-duration: 1s;
         &:hover, &.onFocus{grid-template-columns: 90% 0% 10%;
         .confirmation{grid-template-rows: 100% 0%;i{opacity: 1;}}}
         grid-template-rows: auto;
         grid-template-areas: "a mask b";
         .confirmation{
             border-left:$border;
+            border-width: 5px;
             i{opacity: 0;color:$fond;}
             text-align: center;
             display: grid;
             grid-template-columns: auto;
             grid-template-rows: 0 100%;
-            transition-duration: 1s;
+            //transition-duration: 1s;
             grid-template-areas: "a" "b";
             .a{background: $black; display: flex; align-items: center;>*{width: 100%;}}
+            .b{
+                &.action{background-color: $yellow;}
+                &.move{background-color: $wrapperFond;}
+            }
         }
+        &.newGame .confirmation .a{background: $bg; i{color: $wrapperFondSh;}}
         .mask{grid-area: mask;}
     }
 }
@@ -51,7 +70,7 @@
             grid-template-rows: 100%;
             > div:nth-child(1){grid-area:oui;border-right: $border;}
             > div:nth-child(2){grid-area:non;}
-            > div{background: transparent;transition-duration: 700ms;}
+            > div{background: transparent;}
             > div:hover{background: $black; color: $fond;}
         }
     }

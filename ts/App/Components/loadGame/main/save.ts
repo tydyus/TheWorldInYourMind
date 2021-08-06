@@ -17,7 +17,7 @@ export const Save = async (db:firebase.firestore.Firestore,user:firebase.User|nu
                     render += `
                 <div class="path loadSave ${saves[i].name}" id="path${i}">
                     <div class="a content">
-                        ${saves[i].name}
+                        <p>${saves[i].name}</p>
                     </div>
                     <div style="display:none">
                     <span id="dataSave${i}dateCreation">${saves[i].date_creation.toLocaleString()}</span>
@@ -33,7 +33,7 @@ export const Save = async (db:firebase.firestore.Firestore,user:firebase.User|nu
             `
                 <div class="path loadSave newGame" id="newpath">
                     <div class="a content">
-                        NOUVELLE PARTIE
+                    <p>NOUVELLE PARTIE</p>
                     </div>
                     <div class="mask"></div>
                     <div class="b confirmation"><div class="a"><i class="fas fa-chevron-right"></i>

@@ -17,9 +17,7 @@ export const User = (user:firebase.User|null) => {
             <div class="head"><div id="popUpLogInOutUserClose" class="close"></div> </div>
             <div class="text">
                 <div id="firebaseui-auth-container-option" class="LogInOutContainer">
-                    <img href="" alt="logo">
-                    <button>sign in</button>
-                    <button>log in</button>
+                    
                 </div>
                 <div id="firebaseui-auth-container" class="LogInOutContainer"><div id="LogInUserloader">Loading...</div></div>
                 
@@ -93,7 +91,7 @@ export const startUi = (user:firebase.User|null,auth:firebase.auth.Auth,idHTML='
         <div>
             Ce déconnecter?
         </div>
-        <button id = "logOutBtn"></button>
+        <button id = "logOutBtn">oui</button>
         `;
         (document.getElementById("logOutBtn") as HTMLElement).
             addEventListener("click",async () =>{

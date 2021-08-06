@@ -154,6 +154,14 @@ header .profilNav > .a .checkboxDeco {
   background-size: contain;
 }
 
+#linkToLogInOutUser {
+  cursor: pointer;
+}
+
+#linkToLogInOutUser:hover {
+  opacity: 0.5;
+}
+
 main {
   display: -ms-grid;
   display: grid;
@@ -344,6 +352,10 @@ footer > .a > .a, footer > .a > .b {
   }
 }
 
+footer > .a i:hover {
+  color: #5a20b8;
+}
+
 * {
   font-family: 'Lora', serif;
   font-size: 4vh;
@@ -396,7 +408,8 @@ p.talk.npc {
 }
 
 p.narrator {
-  margin: 3vh;
+  margin: 1.5vh;
+  padding: 1.5vh;
 }
 
 p .annotation {
@@ -408,7 +421,7 @@ p .annotation {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
-  color: #b9322d;
+  color: #ee5b22;
   -webkit-transform: translate(30%, 10%) rotate(-40deg);
           transform: translate(30%, 10%) rotate(-40deg);
 }
@@ -433,7 +446,7 @@ p .title::after {
 
 p .name {
   font-weight: bold;
-  color: #b9322d;
+  color: #ee5b22;
 }
 
 .notificationPopUp {
@@ -517,6 +530,7 @@ p .name {
   scrollbar-width: thin;
   /* Firefox */
   scrollbar-color: #0f0f0f transparent;
+  background: #ffc917;
 }
 
 .node .content::-webkit-scrollbar {
@@ -533,6 +547,11 @@ p .name {
   border: none;
 }
 
+.node .content p {
+  background: #fdfcf6;
+  border-radius: 0.5vh;
+}
+
 .paths {
   position: relative;
   overflow-y: auto;
@@ -540,6 +559,8 @@ p .name {
   scrollbar-width: thin;
   /* Firefox */
   scrollbar-color: #0f0f0f transparent;
+  background: #5a20b8;
+  border-top: 1px #5a20b8 solid;
 }
 
 .paths::-webkit-scrollbar {
@@ -557,16 +578,32 @@ p .name {
 }
 
 .paths .path {
+  cursor: pointer;
   border-bottom: 1px solid #0f0f0f;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 90% 5% 5%;
       grid-template-columns: 90% 5% 5%;
-  -webkit-transition-duration: 1s;
-          transition-duration: 1s;
+  background: #fdfcf6;
   -ms-grid-rows: auto;
       grid-template-rows: auto;
       grid-template-areas: "a mask b";
+}
+
+.paths .path p {
+  padding: 5px;
+}
+
+.paths .path.newGame {
+  background: #5a20b8;
+}
+
+.paths .path.newGame .content p {
+  color: #fdfcf6;
+}
+
+.paths .path.newGame .confirmation {
+  border-color: #fdfcf6;
 }
 
 .paths .path:hover, .paths .path.onFocus {
@@ -585,6 +622,7 @@ p .name {
 
 .paths .path .confirmation {
   border-left: 1px solid #0f0f0f;
+  border-width: 5px;
   text-align: center;
   display: -ms-grid;
   display: grid;
@@ -592,8 +630,6 @@ p .name {
       grid-template-columns: auto;
   -ms-grid-rows: 0 100%;
       grid-template-rows: 0 100%;
-  -webkit-transition-duration: 1s;
-          transition-duration: 1s;
       grid-template-areas: "a" "b";
 }
 
@@ -614,6 +650,22 @@ p .name {
 
 .paths .path .confirmation .a > * {
   width: 100%;
+}
+
+.paths .path .confirmation .b.action {
+  background-color: #ffc917;
+}
+
+.paths .path .confirmation .b.move {
+  background-color: #9642f5;
+}
+
+.paths .path.newGame .confirmation .a {
+  background: #fdfcf6;
+}
+
+.paths .path.newGame .confirmation .a i {
+  color: #5a20b8;
 }
 
 .paths .path .mask {
@@ -651,13 +703,48 @@ p .name {
 
 #popUpConfirmPath > div > .choice > div {
   background: transparent;
-  -webkit-transition-duration: 700ms;
-          transition-duration: 700ms;
 }
 
 #popUpConfirmPath > div > .choice > div:hover {
   background: #0f0f0f;
   color: #ebe9e6;
+}
+
+#profilInfo .nameSave {
+  background-color: #5a20b8;
+}
+
+#profilInfo .nameSave p {
+  color: #fdfcf6;
+}
+
+#checkboxViewBadgeProfil {
+  cursor: pointer;
+}
+
+#checkboxViewBadgeProfil ~ .checkboxDeco.alertNewItem::after {
+  content: "!";
+  position: absolute;
+  color: #fdfcf6;
+  background-color: #ee5b22;
+  border: 1px solid #0f0f0f;
+  border-radius: 100%;
+  top: 0.5vh;
+  right: 0.5vh;
+  font-size: 2vh;
+  height: 3vh;
+  width: 3vh;
+  text-align: center;
+}
+
+@media screen and (min-height: 100vw) {
+  #checkboxViewBadgeProfil ~ .checkboxDeco.alertNewItem::after {
+    top: 0.5vw;
+    right: 0.5vw;
+    font-size: 2vw;
+    height: 3vw;
+    width: 3vw;
+  }
 }
 
 #profilJoueur {
@@ -666,7 +753,7 @@ p .name {
   left: calc(5vw + 17vh - 1px);
   height: 67vh;
   width: calc(90vw - 17vh - 1px);
-  background-color: #fdfcf6;
+  background-color: #9642f5;
   border: 1px solid #0f0f0f;
   display: -ms-grid;
   display: grid;
@@ -724,6 +811,7 @@ p .name {
 
 #profilJoueur .inventaireTabMaster {
   position: relative;
+  background-color: #fdfcf6;
   overflow-y: auto;
   overflow-x: hidden;
   scrollbar-width: thin;
@@ -751,11 +839,11 @@ p .name {
   left: 0;
   width: 100%;
   border-top: 1px solid #0f0f0f;
-  background: #fdfcf6;
 }
 
 #profilJoueur .badgeItem {
   position: relative;
+  background-color: #fdfcf6;
   height: 5vw;
   width: 5vw;
   margin: 0.5vw;
@@ -836,6 +924,7 @@ p .name {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  background-color: #fdfcf6;
   border-bottom: 1px solid #0f0f0f;
 }
 
@@ -887,6 +976,11 @@ p .name {
   font-size: 2vh;
 }
 
+.popUpConfirmLoadSave .deleteSave {
+  border-color: #ee5b22;
+  color: #ee5b22;
+}
+
 .popUpConfirmLoadSave .text {
   position: relative;
 }
@@ -919,11 +1013,57 @@ p .name {
 .popUpConfirmLoadSave .text .text2 .zonetextloadInfo {
   top: 0;
   height: 70%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  /* Firefox */
+  scrollbar-color: #0f0f0f transparent;
+}
+
+.popUpConfirmLoadSave .text .text2 .zonetextloadInfo::-webkit-scrollbar {
+  width: 5px;
+}
+
+.popUpConfirmLoadSave .text .text2 .zonetextloadInfo::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.popUpConfirmLoadSave .text .text2 .zonetextloadInfo::-webkit-scrollbar-thumb {
+  background-color: #0f0f0f;
+  border-radius: 66px;
+  border: none;
 }
 
 .popUpConfirmLoadSave .text .text2 .zone {
   height: 30%;
   bottom: 0;
+}
+
+.popUpConfirmLoadSave .text .text2 .zone input, .popUpConfirmLoadSave .text .text2 .zone button {
+  cursor: pointer;
+}
+
+.popUpConfirmLoadSave #textSaveLoadName {
+  background-color: #5a20b8;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.popUpConfirmLoadSave #textSaveLoadName p {
+  color: #fdfcf6;
+  text-align: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  font-size: 1em;
 }
 
 .logInPage ul {
@@ -967,6 +1107,190 @@ p .name {
   font-size: 0.55em !important;
 }
 
+header.signInPage {
+  background-color: #ffc917;
+}
+
+main.signInPage .a {
+  background-color: #5a20b8;
+}
+
+.signInPage li {
+  margin-bottom: 5px;
+}
+
+.signInPage .node {
+  border: none;
+}
+
+.signInPage .firebaseui-idp-text-short {
+  display: none;
+}
+
+.signInPage .firebaseui-title {
+  font-size: 0.6em;
+  border: 5px solid #0f0f0f;
+  padding: 5px;
+}
+
+.signInPage .mdl-textfield.mdl-js-textfield {
+  padding: 10px 0px 10px 0px;
+}
+
+.signInPage .firebaseui-card-actions .firebaseui-form-actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.signInPage .firebaseui-textfield.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label.is-upgraded {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.signInPage .firebaseui-id-secondary-link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.signInPage .firebaseui-id-secondary-link a {
+  font-size: 0.5em;
+  text-align: center;
+}
+
+.signInPage .firebaseui-tos-list.firebaseui-tos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.signInPage .firebaseui-tos-list.firebaseui-tos a {
+  font-size: 0.5em;
+  padding: 0 10px 0 10px;
+}
+
+main.loadPage {
+  -ms-grid-columns: 17vh 67vh auto;
+      grid-template-columns: 17vh 67vh auto;
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+}
+
+main.loadPage .node {
+  background: url("../img/load.png") no-repeat;
+  background-size: contain;
+}
+
+@media screen and (min-height: 100vw) {
+  main.loadPage {
+        grid-template-areas: "a c" "a b";
+    -ms-grid-rows: auto 73vw;
+        grid-template-rows: auto 73vw;
+    -ms-grid-columns: 17vw 73vw;
+        grid-template-columns: 17vw 73vw;
+  }
+  main.loadPage .paths {
+    min-height: 50vw;
+  }
+}
+
+main.loadPage h2 {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.123);
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: 20px auto 20px auto;
+  padding: 1vh;
+}
+
+#newGameBgStory {
+  display: block;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  /* Firefox */
+  scrollbar-color: #0f0f0f transparent;
+  background-color: #ffc917;
+}
+
+#newGameBgStory::-webkit-scrollbar {
+  width: 5px;
+}
+
+#newGameBgStory::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#newGameBgStory::-webkit-scrollbar-thumb {
+  background-color: #0f0f0f;
+  border-radius: 66px;
+  border: none;
+}
+
+#newGameBgStory .img {
+  position: relative;
+  height: 25vh;
+  background-color: #fdfcf6;
+}
+
+#newGameBgStory .img img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+}
+
+#newGameBgStory p {
+  font-size: 0.4em;
+  background-color: #fdfcf6;
+}
+
+#newGameBgStory p.narrator {
+  margin: 1vh 2vh 1vh 2vh;
+  padding: 0.5vh;
+  border-radius: 0.5vh;
+}
+
+#newGameBgStory p.talk {
+  margin: 2vh;
+}
+
+#formNewGame {
+  background-color: #9642f5;
+}
+
+#formNewGame .formNewGameComp {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#formNewGame .formNewGameComp > p {
+  text-align: center;
+  color: #fdfcf6;
+}
+
+#formNewGame .formNewGameComp > input {
+  text-align: center;
+}
+
 #popUpLogInOutUser > div {
   width: 60vw;
   height: 60vh;
@@ -992,6 +1316,7 @@ p .name {
   -ms-grid-column: 1;
   grid-area: option;
   border-right: 1px solid #0f0f0f;
+  background-color: #9642f5;
 }
 
 #popUpLogInOutUser .text #firebaseui-auth-container {
@@ -1194,6 +1519,7 @@ footer {
       grid-template-areas: "--- close";
   -ms-grid-columns: auto 8vh;
       grid-template-columns: auto 8vh;
+  background: #ffc917;
 }
 
 .popUp > div > .head > .close, #popUpConfirmPath > div > .head > .close {
@@ -1201,7 +1527,7 @@ footer {
   -ms-grid-column: 2;
   grid-area: close;
   border-left: 1px solid #0f0f0f;
-  background: linear-gradient(135deg, transparent calc(50% - 1px), #0f0f0f calc(50% - 1px), #0f0f0f 50%, transparent 50%);
+  background: linear-gradient(135deg, transparent calc(50% - 1px), #0f0f0f calc(50% - 1px), #0f0f0f 50%, transparent 50%), #ee5b22;
 }
 
 .popUp > div > .text, #popUpConfirmPath > div > .text {
@@ -1215,6 +1541,10 @@ footer {
   -ms-grid-row: 3;
   -ms-grid-column: 1;
   grid-area: choice;
+}
+
+.popUp #popUpClose, .popUp #popUpChoiceYes, .popUp #popUpChoiceNo, #popUpConfirmPath #popUpClose, #popUpConfirmPath #popUpChoiceYes, #popUpConfirmPath #popUpChoiceNo {
+  cursor: pointer;
 }
 
 .spinnerOnLoad {
@@ -1310,6 +1640,7 @@ footer {
 
 button {
   border: 1px solid #0f0f0f;
+  border-width: 5px;
   min-height: 10px;
   background: #fdfcf6;
 }

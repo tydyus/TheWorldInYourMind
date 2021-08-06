@@ -26,7 +26,7 @@ export const loadGame = (info:Info, db:firebase.firestore.Firestore,user:firebas
                     </div>
                     <div class="zone decoHideInput">
                         <input type="checkbox">
-                        <button class="decoInput">suprimer</button>
+                        <button class="decoInput deleteSave">suprimer</button>
                         <button id="btnDeleteSave" class="hiddenByInput"><i class="fas fa-trash"></i></button>
                     </div>
                     
@@ -46,7 +46,7 @@ export const loadGame = (info:Info, db:firebase.firestore.Firestore,user:firebas
     <header>
         ${Header(user)}
     </header>
-    <main>
+    <main class="loadPage">
         ${Main(db)}
     </main>
     <footer>

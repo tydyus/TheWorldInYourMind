@@ -10,7 +10,11 @@
         grid-template-columns: 30% 70%;
         grid-template-rows: 100%;
         grid-template-areas: "option log";
-        #firebaseui-auth-container-option{grid-area:option;border-right: $border;}
+        #firebaseui-auth-container-option{
+            grid-area:option;
+            border-right: $border;
+            background-color: $wrapperFond;
+        }
         #firebaseui-auth-container{grid-area:log;}
         > div{
             display: flex; 
